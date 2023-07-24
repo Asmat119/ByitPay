@@ -1,0 +1,35 @@
+name: byitpay
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.6.5
+  flutter_screenutil: ^5.7.0
+  flutter_svg: ^2.0.5
+  google_fonts: ^2.0.0
+  local_auth: ^2.1.6
+  carousel_indicator: ^1.0.6
+
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: 2.0.2
+  flutter_native_splash: ^2.2.19
+  
+  flutter_test: 
+    sdk: flutter
+
+flutter:
+  assets: 
+      - assets/images/
+      - assets/icons/ 
+  uses-material-design: true
+
+flutter_native_splash: 
+  color: '#000032'
+  image: assets/images/logo.png

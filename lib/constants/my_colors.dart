@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+const primaryColor = Color(0xFF000032);
+const activePin = Color(0xFFFB6039);
+const lightText = Color(0xFF6B7280);
+const white = Colors.white;
+// const secondaryColor = Color(0xFF2AD1AE);
+// const bottomNavSelected = Color(0xFFB0606D);
+// const hinttxtColor = Color(0xFF6F6F6F);
+// const backGround = Color(0xFFF5F5F5);
+// const borderColor = Color(0xFF737373);
+// const parrotGreen = Color(0xFF61FF00);
+// const keepWorkingColor = Color(0xFF85E359);
+// const congratsColor = Color(0xFF05FF00);
+// const lightGreen = Color.fromARGB(255, 179, 247, 181);
+// const borderGreen = Color(0xFF61FF00);
+// // const backgroundColor = Color(0xFFB0606D);
+// const backgroundColor = Color.fromARGB(33, 176, 96, 109);
+// const white = Colors.white;
+// const black = Colors.black;
+// const red = Colors.red;
+// const black54 = Colors.black54;
+// const black45 = Colors.black45;
+// const shadowColor = Colors.black12;
+// const defaultPadding = 16.0;
