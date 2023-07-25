@@ -1,0 +1,10 @@
+<svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Lock Icon">
+<g id="Group">
+<path id="Rectangle" d="M5.41663 11C5.41663 10.4477 5.86434 10 6.41663 10H19.5833C20.1356 10 20.5833 10.4477 20.5833 11V19C20.5833 20.6569 19.2401 22 17.5833 22H8.41663C6.75977 22 5.41663 20.6569 5.41663 19V11Z" stroke="#363D4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Rectangle_2" d="M7.58325 7.41667C7.58325 4.42512 10.0084 2 12.9999 2V2C15.9915 2 18.4166 4.42512 18.4166 7.41667V10H7.58325V7.41667Z" stroke="#363D4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse id="Oval" cx="13" cy="15" rx="1.625" ry="1.5" fill="#363D4E"/>
+<path id="Path" d="M12.9999 15V17.5" stroke="#363D4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</svg>

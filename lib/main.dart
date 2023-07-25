@@ -18,7 +18,7 @@ void main() {
           return GetMaterialApp(
             title: "Application",
             debugShowCheckedModeBanner: false,
-            initialRoute: AppPages.INITIALPINCODE,
+            initialRoute: AppPages.INITIAL,
             defaultTransition: Transition.rightToLeft,
             // theme: ThemeData.dark().copyWith(
             //   appBarTheme: AppBarTheme(

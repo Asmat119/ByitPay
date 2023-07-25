@@ -1,4 +1,5 @@
-import 'package:byitpay/app/modules/home/views/login/login_view.dart';
+import 'package:byitpay/app/modules/login/views/login_view.dart';
+import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:byitpay/main.dart';
@@ -142,7 +143,7 @@ class HomeView extends GetView<HomeController> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Get.to(() => const LoginView());
+                      Get.toNamed(Routes.LOGIN);
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: white,

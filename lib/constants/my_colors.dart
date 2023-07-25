@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 const primaryColor = Color(0xFF000032);
 const activePin = Color(0xFFFB6039);
 const lightText = Color(0xFF6B7280);
+const monochrome = Color(0XFF363D4E);
+const grey = Color(0XFF686873);
+const lightPurple = Color(0XFF291B6D);
+const disbaleColor = Color(0XFFB0B9C1);
+const darkBlue = Color(0XFF0047FF);
+
 const white = Colors.white;
+
+const Gradient gradient = LinearGradient(colors: [
+  Color.fromARGB(0, 41, 105, 255),
+  Color(0XFFF91E5A),
+], begin: Alignment.topCenter, end: Alignment.bottomCenter);
 // const secondaryColor = Color(0xFF2AD1AE);
 // const bottomNavSelected = Color(0xFFB0606D);
 // const hinttxtColor = Color(0xFF6F6F6F);
