@@ -1,0 +1,10 @@
+<svg width="10" height="24" viewBox="0 0 10 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Arrow up" clip-path="url(#clip0_621_981)">
+<path id="arrow" d="M4.20004 10.0667C4.60004 9.53333 5.40004 9.53333 5.80004 10.0667L9.80001 15.4C10.2944 16.0592 9.82405 17 9.00001 17H1.00001C0.175962 17 -0.29442 16.0592 0.200011 15.4L4.20004 10.0667Z" fill="#FB6039"/>
+</g>
+<defs>
+<clipPath id="clip0_621_981">
+<rect width="14" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
