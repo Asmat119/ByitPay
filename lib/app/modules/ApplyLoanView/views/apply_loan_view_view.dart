@@ -19,78 +19,91 @@ class ApplyLoanViewView extends GetView<ApplyLoanViewController> {
         Get.back();
       }),
       body: Padding(
-        padding: EdgeInsets.all(27.0),
+        padding: const EdgeInsets.all(27.0),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
-            const PrimaryText(
-                title: "Personal Info",
-                subTitle:
-                    "We have pre-filled your information from your account. Please take a moment to ensure all of the information below is correct."),
-            SizedBox(
-              height: 24,
-            ),
             Expanded(
-              child: ListView.separated(
-                itemCount: controller.itemList.length,
-                separatorBuilder: (BuildContext context, int index) {
-                  return const Divider(
-                    height: 1,
-                    color: Colors.grey,
-                  );
-                },
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: ListTile(
-                      contentPadding: EdgeInsets.all(0),
-                      title: CustomText(
-                        text: controller.itemList[index].title,
-                        fontSize: 14,
-                        color: lightText,
-                        textAlign: TextAlign.left,
-                      ),
-                      subtitle: CustomText(
-                        text: controller.itemList[index].subTitle,
-                        fontSize: 16,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        textAlign: TextAlign.left,
-                      ),
-                      trailing: ElevatedButton(
-                        style: ButtonStyle(
-                            overlayColor: MaterialStateProperty.resolveWith(
-                              (states) {
-                                return states.contains(MaterialState.pressed)
-                                    ? grey.withOpacity(0.5)
-                                    : null;
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const PrimaryText(
+                        title: "Personal Info",
+                        subTitle:
+                            "We have pre-filled your information from your account. Please take a moment to ensure all of the information below is correct."),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: List.generate(
+                        3,
+                        growable: true,
+                        (index) => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ListTile(
+                              enabled: false,
+                              contentPadding: const EdgeInsets.all(0),
+                              title: CustomText(
+                                text: controller.itemList[index].title,
+                                fontSize: 14,
+                                color: lightText,
+                                textAlign: TextAlign.left,
+                                letterSpacing: -0.16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              subtitle: CustomText(
+                                text: controller.itemList[index].subTitle,
+                                fontSize: 16,
+                                color: Colors.black,
+                                letterSpacing: -0.4,
+                                fontWeight: FontWeight.w600,
+                                textAlign: TextAlign.left,
+                              ),
+                              trailing: ElevatedButton(
+                                style: ButtonStyle(
+                                    overlayColor:
+                                        MaterialStateProperty.resolveWith(
+                                      (states) {
+                                        return states
+                                                .contains(MaterialState.pressed)
+                                            ? grey.withOpacity(0.5)
+                                            : null;
+                                      },
+                                    ),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        primaryColor.withOpacity(0.04)),
+                                    elevation: MaterialStateProperty.all(0),
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(100)))),
+                                onPressed: () {
+                                  print("object");
+                                },
+                                child: CustomText(
+                                  text: "Edit",
+                                  fontSize: 14,
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              onTap: () {
+                                // Add your onTap logic here
+                                print('Tapped on ${"hazra"}');
                               },
                             ),
-                            backgroundColor: MaterialStateProperty.all(
-                                primaryColor.withOpacity(0.04)),
-                            elevation: MaterialStateProperty.all(0),
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(100)))),
-                        onPressed: () {
-                          print("object");
-                        },
-                        child: CustomText(
-                          text: "Edit",
-                          fontSize: 14,
-                          color: primaryColor,
-                          fontWeight: FontWeight.w600,
+                            index <= 1 ? const Divider() : const Text(""),
+                          ],
                         ),
                       ),
-                      onTap: () {
-                        // Add your onTap logic here
-                        print('Tapped on ${"hazra"}');
-                      },
                     ),
-                  );
-                },
+                  ],
+                ),
               ),
             ),
-            Spacer(),
             PrimaryButton(
                 title: "Next", onPress: () => Get.toNamed(Routes.LOAN_PUPOSE))
           ],

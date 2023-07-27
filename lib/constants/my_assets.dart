@@ -21,4 +21,11 @@ class MyAssets {
   static String vector = 'assets/icons/vector.svg';
   static String radioCheck = 'assets/icons/Radio.svg';
   static String radioUncheck = 'assets/icons/radio_uncheck.svg';
+  static String arrowup = 'assets/icons/arrow_up.svg';
+  static String pouch = 'assets/icons/Pouch.svg';
+  static String code = 'assets/icons/code.svg';
+  static String calendar = 'assets/icons/Calendar.svg';
+  static String rightArrow = 'assets/icons/chevron-right.svg';
+
+  static String linearBackground = 'assets/images/Background.png';
 }

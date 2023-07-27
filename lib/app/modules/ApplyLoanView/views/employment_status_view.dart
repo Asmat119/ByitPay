@@ -21,42 +21,51 @@ class EmploymentStatusView extends GetView<ApplyLoanViewController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const PrimaryText(title: "Employment Status 👨🏽‍💻", subTitle: ""),
-            const SizedBox(
-              height: 12,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const PrimaryText(title: "Employment Status 👨🏽‍💻", subTitle: ""),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    CustomText(
+                        text: "What is your current employment status?", fontSize: 13),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Obx(() => CustomDropDown(
+                          title: "",
+                          item: controller.employeItems,
+                          selectedOption: controller.emplyeSelectedOption.value,
+                          onchange: (String? value) {
+                            controller.emplyeSelectedOption.value = value!;
+                          },
+                          label: false,
+                        )),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    CustomText(
+                        text: "How long have you been working there? ", fontSize: 13),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Obx(() => CustomDropDown(
+                          title: "Duration",
+                          item: controller.durationItems,
+                          selectedOption: controller.durationSelectedOption.value,
+                          onchange: (String? value) {
+                            controller.durationSelectedOption.value = value!;
+                          },
+                          label: true,
+                        )),
+                  ],
+                ),
+              ),
             ),
-            CustomText(
-                text: "What is your current employment status?", fontSize: 13),
-            const SizedBox(
-              height: 16,
-            ),
-            Obx(() => CustomDropDown(
-                  title: "",
-                  item: controller.employeItems,
-                  selectedOption: controller.emplyeSelectedOption.value,
-                  onchange: (String? value) {
-                    controller.emplyeSelectedOption.value = value!;
-                  },
-                  label: false,
-                )),
-            const SizedBox(
-              height: 16,
-            ),
-            CustomText(
-                text: "How long have you been working there? ", fontSize: 13),
-            const SizedBox(
-              height: 16,
-            ),
-            Obx(() => CustomDropDown(
-                  title: "Duration",
-                  item: controller.durationItems,
-                  selectedOption: controller.durationSelectedOption.value,
-                  onchange: (String? value) {
-                    controller.durationSelectedOption.value = value!;
-                  },
-                  label: true,
-                )),
-            Spacer(),
+
             PrimaryButton(
                 title: "Next",
                 onPress: () {

@@ -18,6 +18,8 @@ abstract class Routes {
   static const VERIFYIDENTITY = _Paths.VERIFYIDENTITY;
   static const LOANOVERVIEW = _Paths.LOANOVERVIEW;
   static const SELECTOFFER = _Paths.SELECTOFFER;
+  static const LOAN = _Paths.LOAN;
+  static const LOANDETAILS = _Paths.LOANDETAILS;
 }
 
 abstract class _Paths {
@@ -35,4 +37,6 @@ abstract class _Paths {
   static const VERIFYIDENTITY = '/verifyidentity';
   static const LOANOVERVIEW = '/loanoverview';
   static const SELECTOFFER = '/selectoffer';
+  static const LOAN = '/loan';
+  static const LOANDETAILS = '/loandetails';
 }

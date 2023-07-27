@@ -3,6 +3,7 @@ import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dar
 import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
+import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -21,127 +22,124 @@ class LoanOverviewView extends GetView<ApplyLoanViewController> {
         padding: const EdgeInsets.all(27.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  const PrimaryText(
-                      title: "Loan Overview",
-                      subTitle:
-                          "Does this look correct? Please verify and confirm your loan details."),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Column(
-                    children: List.generate(
-                      controller.confirmLoanList.length,
-                      (index) => Column(
-                        children: [
-                          ListTile(
-                            enabled: false,
-                            isThreeLine: true,
-                            contentPadding: const EdgeInsets.all(0),
-                            title: CustomText(
-                              text: controller.confirmLoanList[index].title,
-                              fontSize: 14,
-                              color: lightText,
-                              textAlign: TextAlign.left,
-                            ),
-                            subtitle: CustomText(
-                              text: controller.confirmLoanList[index].subTitle,
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              textAlign: TextAlign.left,
-                            ),
-                            trailing: ElevatedButton(
-                              style: ButtonStyle(
-                                  overlayColor:
-                                      MaterialStateProperty.resolveWith(
-                                    (states) {
-                                      return states
-                                              .contains(MaterialState.pressed)
-                                          ? grey.withOpacity(0.5)
-                                          : null;
-                                    },
-                                  ),
-                                  backgroundColor: MaterialStateProperty.all(
-                                      primaryColor.withOpacity(0.04)),
-                                  elevation: MaterialStateProperty.all(0),
-                                  shape: MaterialStateProperty.all(
-                                      RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(100)))),
-                              onPressed: () {
-                                print("object");
-                              },
-                              child: CustomText(
-                                text: "Edit",
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const PrimaryText(
+                        title: "Loan Overview",
+                        subTitle:
+                            "Does this look correct? Please verify and confirm your loan details."),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
+
+                        controller.confirmLoanList.length,
+                        (index) => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ListTile(
+                              enabled: false,
+
+                              contentPadding: const EdgeInsets.all(0),
+                              title: CustomText(
+                                text: controller.confirmLoanList[index].title,
                                 fontSize: 14,
-                                color: primaryColor,
+                                color: lightText,
+                                textAlign: TextAlign.left,
+                                letterSpacing: -0.16,
                                 fontWeight: FontWeight.w600,
                               ),
+                              subtitle: CustomText(
+                                text: controller.confirmLoanList[index].subTitle,
+                                fontSize: 16,
+                                color: Colors.black,
+
+                                textAlign: TextAlign.left,
+                                letterSpacing: -0.4,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              trailing: ElevatedButton(
+                                style: ButtonStyle(
+                                    overlayColor:
+                                        MaterialStateProperty.resolveWith(
+                                      (states) {
+                                        return states
+                                                .contains(MaterialState.pressed)
+                                            ? grey.withOpacity(0.5)
+                                            : null;
+                                      },
+                                    ),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        primaryColor.withOpacity(0.04)),
+                                    elevation: MaterialStateProperty.all(0),
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(100)))),
+                                onPressed: () {
+                                  print("object");
+                                },
+                                child: CustomText(
+                                  text: "Edit",
+                                  fontSize: 14,
+                                  color: primaryColor,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              onTap: () {
+                                // Add your onTap logic here
+                                print('Tapped on ${"hazra"}');
+                              },
                             ),
-                            onTap: () {
-                              // Add your onTap logic here
-                              print('Tapped on ${"hazra"}');
-                            },
-                          ),
-                          index <= 1 ? const Divider() : const Text(""),
-                        ],
+                            index <= 1 ? const Divider() : const Text(""),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    CustomText(
+                      text:
+                      MyConstants.I_agree,
+                      fontSize: 14,
+                      textAlign: TextAlign.left,
+                      letterSpacing: -0.32,
+                      fontWeight: FontWeight.w500
+
+                    ),
+
+
+                    Obx(() => Padding(
+                      padding: const EdgeInsets.only(bottom: 18,top: 31),
+                      child: Row(
+                        children: [
+                          RectangularCheckbox(
+                            value: controller.isChecked.value,
+                            onChanged: (value) {
+                              controller.isChecked.value = value;
+                            },
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: CustomText(text: "I agree", fontSize: 16, fontWeight: FontWeight.w500,),
+                          )
+                        ],
+                      ),
+                    )),
+                  ],
+                ),
               ),
             ),
-            const Spacer(),
-            CustomText(
-              text:
-                  "I agree that all info provided in this loan application is true and complete. I understand Bylt Pay will rely on the information to decide on this app. I authorize and consent Bylt Pay gather more info about me and to share my info as allowed by law once i submit this application.",
-              fontSize: 14,
-              textAlign: TextAlign.left,
-              fontWeight: FontWeight.w400,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            // ClipRRect(
-            //   borderRadius: BorderRadius.circular(8),
-            //   child: SizedBox(
-            //     height: 18,
-            //     child: Obx(() => Theme(
-            //           data: Theme.of(context).copyWith(
-            //             unselectedWidgetColor: Colors.black,
-            //             toggleableActiveColor: Colors.orange.shade800,
-            //           ),
-            //           child: Checkbox(
-            //             splashRadius: 8,
-            //             checkColor: Colors.black,
-            //             side: BorderSide.none,
-            //             overlayColor: MaterialStateProperty.all(grey),
-            //             fillColor: MaterialStateProperty.all(activePin),
-            //             visualDensity: VisualDensity.standard,
-            //             shape: RoundedRectangleBorder(
-            //                 side: BorderSide(width: 0.7, color: activePin),
-            //                 borderRadius: BorderRadius.circular(2)),
-            //             value: controller.isChecked.value,
-            //             onChanged: (bool? value) {
-            //               controller.isChecked.value = value!;
-            //             },
-            //             activeColor: activePin,
-            //           ),
-            //         )),
-            //   ),
-            // ),
-            Obx(() => RectangularCheckbox(
-                  value: controller.isChecked.value,
-                  onChanged: (value) {
-                    controller.isChecked.value = value;
-                  },
-                )),
+
+
             PrimaryButton(
-                title: "See Offer",
+                title: "See Offers",
                 onPress: () => Get.toNamed(Routes.SELECTOFFER))
           ],
         ),

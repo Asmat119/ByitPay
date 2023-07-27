@@ -1,15 +1,18 @@
-import 'package:byitpay/app/modules/ApplyLoanView/views/employment_status_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/how_much_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/loan_overview_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/loan_purpose_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/repayment_method_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/salary_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/select_your_offer_view.dart';
-import 'package:byitpay/app/modules/ApplyLoanView/views/verify_identity_view.dart';
+import 'package:byitpay/app/modules/Loan/views/loan_details_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/ApplyLoanView/bindings/apply_loan_view_binding.dart';
 import '../modules/ApplyLoanView/views/apply_loan_view_view.dart';
+import '../modules/ApplyLoanView/views/employment_status_view.dart';
+import '../modules/ApplyLoanView/views/how_much_view.dart';
+import '../modules/ApplyLoanView/views/loan_overview_view.dart';
+import '../modules/ApplyLoanView/views/loan_purpose_view.dart';
+import '../modules/ApplyLoanView/views/repayment_method_view.dart';
+import '../modules/ApplyLoanView/views/salary_view.dart';
+import '../modules/ApplyLoanView/views/select_your_offer_view.dart';
+import '../modules/ApplyLoanView/views/verify_identity_view.dart';
+import '../modules/Loan/bindings/loan_binding.dart';
+import '../modules/Loan/views/loan_view.dart';
 import '../modules/TabView/bindings/tab_view_binding.dart';
 import '../modules/TabView/views/tab_view_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -24,8 +27,8 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.TAB_VIEW;
-  static const INITIALPINCODE = Routes.PINCODE;
+  static const INITIAL = Routes.LOGIN;
+  static const INITIALPINCODE = Routes.LOAN;
 
   static final routes = [
     GetPage(
@@ -92,6 +95,16 @@ class AppPages {
       name: _Paths.SELECTOFFER,
       page: () => const SelectYourOfferView(),
       binding: ApplyLoanViewBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOAN,
+      page: () => const LoanView(),
+      binding: LoanBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOANDETAILS,
+      page: () => LoanDetailsView(),
+      binding: LoanBinding(),
     ),
   ];
 }

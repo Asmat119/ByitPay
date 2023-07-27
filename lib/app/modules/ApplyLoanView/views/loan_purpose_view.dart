@@ -18,7 +18,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: CustomAppBar(backPress: () {}),
+      appBar: CustomAppBar(backPress: () {Get.back();}),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           padding: const EdgeInsets.all(27.0),
@@ -60,7 +60,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                       showSuffixIcon: false,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Expanded(
@@ -194,24 +194,27 @@ class CustomDropDown extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           label == false
-              ? Text(
+              ? const Text(
                   "",
                   style: TextStyle(fontSize: 0),
                 )
               : CustomText(text: title, fontSize: 14),
           DropdownButton<String>(
             isDense: true,
+
             isExpanded: true,
             icon: SvgPicture.asset(
               MyAssets.dropdown,
               color: Colors.black,
             ),
             underline: Container(),
+
             // Step 3.
             value: selectedOption,
             // Step 4.
             items: item.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
+
                 value: value,
                 child: Text(
                   value,

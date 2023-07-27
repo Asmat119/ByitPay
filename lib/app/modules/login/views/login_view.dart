@@ -1,3 +1,5 @@
+import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
+import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -22,31 +25,116 @@ class LoginView extends GetView<LoginController> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            const PrimaryText(
-              title: 'Welcome back 👋🏽',
-              subTitle:
-                  "Please login to your account using the registered email and password.",
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const PrimaryText(
+                    title: 'Welcome back 👋🏽',
+                    subTitle:
+                        "Please login to your account using the registered email and password.",
+                  ),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  EditTextField(
+                    controller: controller.textEditingController,
+                    suffixIcon: MyAssets.cancle,
+                    isSecure: false,
+                    lable: "Email",
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  EditTextField(
+                    controller: controller.passEditingController,
+                    suffixIcon: MyAssets.lock,
+                    isSecure: false,
+                    lable: "Password",
+                  ),
+                  const SizedBox(height: 29),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 33),
+                    child: CustomText(
+                      text: "Email address not associated with an account",
+                      fontSize: 15,
+                      color: activePin,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const Spacer(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 35),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: <TextSpan>[
+                    const TextSpan(
+                        text: 'By using our mobile app, you agree to our',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                            fontSize: 13)),
+                    TextSpan(
+                        text: ' Terms of Use',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.bold,
+                            color: activePin,
+                            fontSize: 13)),
+                    TextSpan(
+                        text: ' and ',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                            fontSize: 13)),
+                    TextSpan(
+                        text: 'Privacy Policy',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.bold,
+                            color: activePin,
+                            fontSize: 13)),
+                  ],
+                ),
+              ),
+            ),
+            PrimaryButton(
+              title: "Login",
+              onPress: () {},
+              color: buttonDisbaleColor,
+              textColor:
+                  // controller.textEditingController.text.isEmpty &&
+                  //         controller.passEditingController.text.isEmpty
+                  //     ?
+                  disbaleColor,
             ),
             const SizedBox(
-              height: 12,
+              height: 19,
             ),
-            EditTextField(
-              controller: controller.textEditingController,
-              suffixIcon: MyAssets.cancle,
-              isSecure: false,
-              lable: "Email",
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            EditTextField(
-              controller: controller.passEditingController,
-              suffixIcon: MyAssets.lock,
-              isSecure: false,
-              lable: "Password",
-            ),
+            InkWell(
+              onTap: () {},
+              child: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: 'Don’t have an account? ',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                            fontSize: 13)),
+                    TextSpan(
+                        text: 'Sign up',
+                        style: GoogleFonts.inter(
+                            fontWeight: FontWeight.bold,
+                            color: activePin,
+                            fontSize: 13)),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -98,11 +186,11 @@ class EditTextField extends StatelessWidget {
           isDense: true,
           alignLabelWithHint: false,
           focusedBorder: showInputBorder == true
-              ? UnderlineInputBorder(
+              ? const UnderlineInputBorder(
                   borderSide: BorderSide(color: lightText, width: 0.7))
               : InputBorder.none,
           border: showInputBorder == true
-              ? UnderlineInputBorder(
+              ? const UnderlineInputBorder(
                   borderSide: BorderSide(color: lightText, width: 0.7))
               : InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -129,14 +217,14 @@ class PrimaryText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 12,
         ),
         Text(
           subTitle,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w500),
         ),
       ],
     );

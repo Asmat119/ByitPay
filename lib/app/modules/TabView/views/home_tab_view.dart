@@ -8,6 +8,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeTabView extends GetView<TabViewController> {
   const HomeTabView({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class HomeTabView extends GetView<TabViewController> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize:
-              const Size.fromHeight(260.0), // here the desired height
+              const Size.fromHeight(266.0), // here the desired height
           child: Container(
             decoration: const BoxDecoration(
                 color: primaryColor,
@@ -178,7 +179,7 @@ class HomeTabView extends GetView<TabViewController> {
                       )
                     : Column(
                         children:
-                            List.generate(10, (index) => PaymentHistoryCard()),
+                            List.generate(10, (index) => const PaymentHistoryCard()),
                       )
               ]),
             ),
@@ -206,12 +207,13 @@ class HomeTabView extends GetView<TabViewController> {
                           "Short on cash? Borrow on your terms to cover unexpected emergency up to \$100,000.",
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
+                      textAlign: TextAlign.start,
                       color: grey.withOpacity(0.5),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    Divider(),
+                    const Divider(),
                     const SizedBox(
                       height: 6,
                     ),
@@ -236,7 +238,7 @@ class HomeTabView extends GetView<TabViewController> {
                     ),
                   ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
           ],
@@ -254,25 +256,25 @@ class PaymentHistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 4),
+      margin: const EdgeInsets.symmetric(vertical: 4),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(width: 1.7, color: Color(0XFFF8F8F8)),
+        border: Border.all(width: 1.7, color: const Color(0XFFF8F8F8)),
         color: white,
       ),
       child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
         Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-              color: Color(0XFFF9FAFB),
+              color: const Color(0XFFF9FAFB),
               borderRadius: BorderRadius.circular(12)),
           child: SvgPicture.asset(
             MyAssets.loan,
             color: primaryColor,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Column(
@@ -282,9 +284,9 @@ class PaymentHistoryCard extends StatelessWidget {
               text: "Loan Pyament",
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: grey.withOpacity(0.5),
+              color: Colors.black,
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
             CustomText(
@@ -295,7 +297,7 @@ class PaymentHistoryCard extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         CustomText(
           text: "\$2750",
           fontSize: 14,
@@ -313,20 +315,24 @@ class CustomText extends StatelessWidget {
       required this.fontSize,
       this.fontWeight,
       this.color,
-      this.textAlign = TextAlign.center});
+      this.textAlign = TextAlign.center,
+      this.letterSpacing = 0
+      });
   final String text;
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color? color;
   final TextAlign? textAlign;
+  final double? letterSpacing;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: TextStyle(
+      style: GoogleFonts.inter(
           fontSize: fontSize,
+          letterSpacing: letterSpacing,
           fontWeight: (fontWeight ?? FontWeight.w500),
           color: color ?? Colors.black),
     );
@@ -364,12 +370,12 @@ class HeaderCustomButton extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 4,
+            height: 6,
           ),
           Text(
             name,
-            style: const TextStyle(
-                fontWeight: FontWeight.w400, color: white, fontSize: 14),
+            style:  GoogleFonts.poppins(
+                fontWeight: FontWeight.w500, color: white, fontSize: 14),
           )
         ],
       ),

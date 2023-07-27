@@ -8,9 +8,18 @@ const grey = Color(0XFF686873);
 const lightPurple = Color(0XFF291B6D);
 const disbaleColor = Color(0XFFB0B9C1);
 const darkBlue = Color(0XFF0047FF);
+const buttonDisbaleColor = Color(0XFFECECEC);
+const lightGrey = Color(0XFF8F99A3);
+const linearBlue = Color(0XFFFB6039);
+const linearRed = Color(0XFF2969FF);
+const tabBacjground = Color(0XFFF9FAFB);
+const green = Color(0XFF1AAF5D);
 
 const white = Colors.white;
-
+const linearGradientProgressBar = LinearGradient(
+    colors: [linearRed, linearBlue],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight);
 const Gradient gradient = LinearGradient(colors: [
   Color.fromARGB(0, 41, 105, 255),
   Color(0XFFF91E5A),
