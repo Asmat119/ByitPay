@@ -23,7 +23,7 @@ class RepaymentMethodView extends GetView<ApplyLoanViewController> {
             const PrimaryText(
                 title: "Repayment Method ?",
                 subTitle: "How do you prefer to repay your loan? "),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Obx(() => CustomDropDown(
@@ -34,7 +34,7 @@ class RepaymentMethodView extends GetView<ApplyLoanViewController> {
                     controller.dedcutionSelectedOption.value = value!;
                   },
                 )),
-            Spacer(),
+            const Spacer(),
             PrimaryButton(
                 title: "Next",
                 onPress: () {

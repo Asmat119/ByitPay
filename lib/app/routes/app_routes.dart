@@ -20,6 +20,18 @@ abstract class Routes {
   static const SELECTOFFER = _Paths.SELECTOFFER;
   static const LOAN = _Paths.LOAN;
   static const LOANDETAILS = _Paths.LOANDETAILS;
+  static const LOANDOCUMENT = _Paths.LOANDOCUMENT;
+  static const LOANSTATEMENT = _Paths.LOANSTATEMENT;
+  static const PROFILE = _Paths.PROFILE;
+  static const RECEIPT = _Paths.RECEIPT;
+
+  static const GENERAL_SETTING = _Paths.GENERAL_SETTING;
+  static const NOTIFICATION_SETTING = _Paths.NOTIFICATION_SETTING;
+  static const CHANGEPIN = _Paths.CHANGEPIN;
+  static const MAKEPAYMENT = _Paths.MAKEPAYMENT;
+  static const DOCUMENT = _Paths.DOCUMENT;
+  static const HELPCENTER = _Paths.HELPCENTER;
+  static const CUSTOMERSUPPORT = _Paths.CUSTOMERSUPPORT;
 }
 
 abstract class _Paths {
@@ -39,4 +51,16 @@ abstract class _Paths {
   static const SELECTOFFER = '/selectoffer';
   static const LOAN = '/loan';
   static const LOANDETAILS = '/loandetails';
+  static const LOANDOCUMENT = '/loandocument';
+  static const LOANSTATEMENT = '/loanstatement';
+  static const PROFILE = '/profile';
+  static const RECEIPT = '/receipt';
+
+  static const GENERAL_SETTING = '/general-setting';
+  static const NOTIFICATION_SETTING = '/notification-setting';
+  static const CHANGEPIN = '/changepin';
+  static const MAKEPAYMENT = '/makepayment';
+  static const DOCUMENT = '/document';
+  static const HELPCENTER = '/helpcenter';
+  static const CUSTOMERSUPPORT = '/customersupport';
 }

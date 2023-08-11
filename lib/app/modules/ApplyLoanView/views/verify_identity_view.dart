@@ -1,12 +1,11 @@
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
@@ -64,11 +63,10 @@ class VerifyIdentityView extends GetView {
                       fontWeight: FontWeight.w500,
                       textAlign: TextAlign.start,
                     ),
-
                     Container(
-
-                     margin: EdgeInsets.only(top: 51),
-                      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 16),
+                      margin: const EdgeInsets.only(top: 51),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0, vertical: 16),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(26),
                           color: const Color(0XFFF1F3FA)),
@@ -85,7 +83,8 @@ class VerifyIdentityView extends GetView {
                             height: 12,
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
                             child: Text(
                               "Please click on the  +  sign to upload your documents. ",
                               textAlign: TextAlign.center,
@@ -105,7 +104,7 @@ class VerifyIdentityView extends GetView {
                               const SizedBox(
                                 width: 8,
                               ),
-                              CustomText(
+                              const CustomText(
                                 text: "Select",
                                 fontSize: 16,
                                 color: darkBlue,
@@ -119,7 +118,6 @@ class VerifyIdentityView extends GetView {
                 ),
               ),
             ),
-
             PrimaryButton(
                 title: "Continue",
                 onPress: () {

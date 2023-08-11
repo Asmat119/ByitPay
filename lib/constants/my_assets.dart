@@ -26,6 +26,24 @@ class MyAssets {
   static String code = 'assets/icons/code.svg';
   static String calendar = 'assets/icons/Calendar.svg';
   static String rightArrow = 'assets/icons/chevron-right.svg';
-
+  static String bell = 'assets/icons/bell.svg';
+  static String info = 'assets/icons/info.svg';
+  static String payment = 'assets/icons/payment.svg';
+  static String setting = 'assets/icons/setting.svg';
+  static String search = 'assets/icons/Search.svg';
+  static String lockgreen = 'assets/icons/lock_green.svg';
+  static String document = 'assets/icons/document.svg';
+  static String support = 'assets/icons/support.svg';
+  static String logout = 'assets/icons/logout.svg';
+  static String check = 'assets/icons/check.svg';
+  static String whatsApp = 'assets/icons/Whatsapp.svg';
+  static String chatting = 'assets/icons/chatting.svg';
+  static String helpcneter = 'assets/icons/helpcenter.svg';
+  static String mastercard2 = 'assets/icons/mastercard.svg';
+  static String mastercard = 'assets/icons/mc_symbol.svg';
+  static String simpleBell = 'assets/icons/simple_bell.svg';
+  static String receipt = 'assets/images/Receipt.png';
+  static String receiptSvg = 'assets/icons/Receipt.svg';
   static String linearBackground = 'assets/images/Background.png';
+  static String paymentcards = 'assets/images/paymentcards.png';
 }

@@ -1,9 +1,8 @@
-import 'package:byitpay/model/PersonalInfoModel.dart';
+import 'package:byitpay/model/personal_Info_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class ApplyLoanViewController extends GetxController {
-  //TODO: Implement ApplyLoanViewController
   RxBool fiveMonth = true.obs;
   RxBool fourMonth = false.obs;
 
@@ -65,20 +64,6 @@ class ApplyLoanViewController extends GetxController {
   ];
 
   final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void increment() => count.value++;
 }

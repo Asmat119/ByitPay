@@ -1,4 +1,6 @@
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/LoanTab/loan_view.dart';
+import 'package:byitpay/app/modules/TabView/views/ProfileTab/views/profile_view.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +16,10 @@ class TabViewView extends GetView<TabViewController> {
 
   // Define your screen/page widgets here.
   final List<Widget> _screens = [
-    HomeTabView(),
-    Text("TWO"),
-    Text("THE"),
-    Text("Four")
+    const HomeTabView(),
+    const LoanView(),
+    const Text("THE"),
+    const ProfileView()
   ];
 
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class TabViewView extends GetView<TabViewController> {
             unselectedItemColor: lightText,
             selectedLabelStyle: GoogleFonts.inter(
                 color: primaryColor, fontWeight: FontWeight.w600),
-            unselectedLabelStyle:  GoogleFonts.inter(
+            unselectedLabelStyle: GoogleFonts.inter(
                 color: Colors.grey, fontWeight: FontWeight.w600),
             // currentIndex: controller.currentIndex.value,
             onTap: controller.onTabTapped,
@@ -48,11 +50,16 @@ class TabViewView extends GetView<TabViewController> {
                           ? primaryColor
                           : disbaleColor,
                     ),
-                    SizedBox(height: 3,),
-                    CustomText(text: "Home", fontSize: 11, fontWeight: FontWeight.bold,
-                      color:  controller.currentIndex.value == 0
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    CustomText(
+                      text: "Home",
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                      color: controller.currentIndex.value == 0
                           ? primaryColor
-                          : disbaleColor ,
+                          : disbaleColor,
                     )
                   ],
                 ),
@@ -69,11 +76,16 @@ class TabViewView extends GetView<TabViewController> {
                             ? primaryColor
                             : disbaleColor,
                       ),
-                      SizedBox(height: 3,),
-                      CustomText(text: "Loan", fontSize: 11, fontWeight: FontWeight.bold,
-                      color:  controller.currentIndex.value == 1
-                          ? primaryColor
-                          : disbaleColor ,
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      CustomText(
+                        text: "Loan",
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                        color: controller.currentIndex.value == 1
+                            ? primaryColor
+                            : disbaleColor,
                       )
                     ],
                   )),
@@ -88,11 +100,16 @@ class TabViewView extends GetView<TabViewController> {
                           ? primaryColor
                           : disbaleColor,
                     ),
-                    SizedBox(height: 3,),
-                    CustomText(text: "Help", fontSize: 11, fontWeight: FontWeight.bold,
-                      color:  controller.currentIndex.value == 2
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    CustomText(
+                      text: "Help",
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                      color: controller.currentIndex.value == 2
                           ? primaryColor
-                          : disbaleColor ,
+                          : disbaleColor,
                     )
                   ],
                 ),
@@ -109,11 +126,16 @@ class TabViewView extends GetView<TabViewController> {
                           ? primaryColor
                           : disbaleColor,
                     ),
-                    SizedBox(height: 3,),
-                    CustomText(text: "Profile", fontSize: 11, fontWeight: FontWeight.bold,
-                      color:  controller.currentIndex.value == 3
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    CustomText(
+                      text: "Profile",
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold,
+                      color: controller.currentIndex.value == 3
                           ? primaryColor
-                          : disbaleColor ,
+                          : disbaleColor,
                     )
                   ],
                 ),

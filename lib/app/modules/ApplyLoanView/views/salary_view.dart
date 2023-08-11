@@ -36,7 +36,7 @@ class SalaryView extends GetView<ApplyLoanViewController> {
               showBorder: false,
               showInputBorder: true,
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.all(14.0),
               child: PrimaryButton(

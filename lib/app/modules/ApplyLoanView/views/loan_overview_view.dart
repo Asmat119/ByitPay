@@ -1,12 +1,11 @@
 import 'package:byitpay/app/modules/ApplyLoanView/controllers/apply_loan_view_controller.dart';
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 class LoanOverviewView extends GetView<ApplyLoanViewController> {
@@ -39,14 +38,12 @@ class LoanOverviewView extends GetView<ApplyLoanViewController> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
-
                         controller.confirmLoanList.length,
                         (index) => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ListTile(
                               enabled: false,
-
                               contentPadding: const EdgeInsets.all(0),
                               title: CustomText(
                                 text: controller.confirmLoanList[index].title,
@@ -57,10 +54,10 @@ class LoanOverviewView extends GetView<ApplyLoanViewController> {
                                 fontWeight: FontWeight.w600,
                               ),
                               subtitle: CustomText(
-                                text: controller.confirmLoanList[index].subTitle,
+                                text:
+                                    controller.confirmLoanList[index].subTitle,
                                 fontSize: 16,
                                 color: Colors.black,
-
                                 textAlign: TextAlign.left,
                                 letterSpacing: -0.4,
                                 fontWeight: FontWeight.w600,
@@ -84,60 +81,53 @@ class LoanOverviewView extends GetView<ApplyLoanViewController> {
                                             borderRadius:
                                                 BorderRadius.circular(100)))),
                                 onPressed: () {
-                                  print("object");
+                                  debugPrint("object");
                                 },
-                                child: CustomText(
+                                child: const CustomText(
                                   text: "Edit",
                                   fontSize: 14,
                                   color: primaryColor,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              onTap: () {
-                                // Add your onTap logic here
-                                print('Tapped on ${"hazra"}');
-                              },
+                              onTap: () {},
                             ),
                             index <= 1 ? const Divider() : const Text(""),
                           ],
                         ),
                       ),
                     ),
-                    CustomText(
-                      text:
-                      MyConstants.I_agree,
-                      fontSize: 14,
-                      textAlign: TextAlign.left,
-                      letterSpacing: -0.32,
-                      fontWeight: FontWeight.w500
-
-                    ),
-
-
+                    const CustomText(
+                        text: MyConstants.iagree,
+                        fontSize: 14,
+                        textAlign: TextAlign.left,
+                        letterSpacing: -0.32,
+                        fontWeight: FontWeight.w500),
                     Obx(() => Padding(
-                      padding: const EdgeInsets.only(bottom: 18,top: 31),
-                      child: Row(
-                        children: [
-                          RectangularCheckbox(
-                            value: controller.isChecked.value,
-                            onChanged: (value) {
-                              controller.isChecked.value = value;
-                            },
+                          padding: const EdgeInsets.only(bottom: 18, top: 31),
+                          child: Row(
+                            children: [
+                              RectangularCheckbox(
+                                value: controller.isChecked.value,
+                                onChanged: (value) {
+                                  controller.isChecked.value = value;
+                                },
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: CustomText(
+                                  text: "I agree",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              )
+                            ],
                           ),
-
-                          Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: CustomText(text: "I agree", fontSize: 16, fontWeight: FontWeight.w500,),
-                          )
-                        ],
-                      ),
-                    )),
+                        )),
                   ],
                 ),
               ),
             ),
-
-
             PrimaryButton(
                 title: "See Offers",
                 onPress: () => Get.toNamed(Routes.SELECTOFFER))
@@ -152,7 +142,8 @@ class RectangularCheckbox extends StatelessWidget {
   final bool value;
   final ValueChanged<bool> onChanged;
 
-  RectangularCheckbox({required this.value, required this.onChanged});
+  const RectangularCheckbox(
+      {super.key, required this.value, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {

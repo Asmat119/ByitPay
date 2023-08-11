@@ -1,4 +1,4 @@
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_colors.dart';
@@ -15,9 +15,11 @@ class ApplyLoanViewView extends GetView<ApplyLoanViewController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: CustomAppBar(backPress: () {
-        Get.back();
-      }),
+      appBar: CustomAppBar(
+          text: "",
+          backPress: () {
+            Get.back();
+          }),
       body: Padding(
         padding: const EdgeInsets.all(27.0),
         child: Column(
@@ -80,10 +82,8 @@ class ApplyLoanViewView extends GetView<ApplyLoanViewController> {
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(100)))),
-                                onPressed: () {
-                                  print("object");
-                                },
-                                child: CustomText(
+                                onPressed: () {},
+                                child: const CustomText(
                                   text: "Edit",
                                   fontSize: 14,
                                   color: primaryColor,
@@ -92,7 +92,7 @@ class ApplyLoanViewView extends GetView<ApplyLoanViewController> {
                               ),
                               onTap: () {
                                 // Add your onTap logic here
-                                print('Tapped on ${"hazra"}');
+                                debugPrint('Tapped on ${"hazra"}');
                               },
                             ),
                             index <= 1 ? const Divider() : const Text(""),
@@ -119,11 +119,13 @@ class PrimaryButton extends StatelessWidget {
       required this.title,
       this.color = primaryColor,
       this.textColor = white,
-      required this.onPress});
+      required this.onPress,
+      this.fontWeight});
   final String title;
   final Color color;
   final Color textColor;
   final Callback onPress;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +146,7 @@ class PrimaryButton extends StatelessWidget {
                 text: title,
                 fontSize: 17,
                 color: textColor,
-                fontWeight: FontWeight.w500,
+                fontWeight: fontWeight ?? FontWeight.w500,
               ),
             )),
       ),

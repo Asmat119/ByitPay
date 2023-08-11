@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const primaryColor = Color(0xFF000032);
 const activePin = Color(0xFFFB6039);
 const lightText = Color(0xFF6B7280);
+const disbaleTextColor = Color(0xFF040C22);
+
 const monochrome = Color(0XFF363D4E);
 const grey = Color(0XFF686873);
 const lightPurple = Color(0XFF291B6D);
@@ -14,6 +16,10 @@ const linearBlue = Color(0XFFFB6039);
 const linearRed = Color(0XFF2969FF);
 const tabBacjground = Color(0XFFF9FAFB);
 const green = Color(0XFF1AAF5D);
+const primaryblue200 = Color(0XFFB2C6FE);
+const purple = Color(0XFF5F38CA);
+const circleColor = Color(0XFFC4C4C4);
+const dropDownTextColor = Color(0XFF111827);
 
 const white = Colors.white;
 const linearGradientProgressBar = LinearGradient(

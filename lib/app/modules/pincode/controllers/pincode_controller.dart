@@ -77,8 +77,6 @@ class PincodeController extends GetxController {
   // }
 }
 
-
-
 class AuthService {
   static Future<bool> authenticateUser() async {
     //initialize Local Authentication plugin.
@@ -88,26 +86,26 @@ class AuthService {
     //check if device supports biometrics authentication.
     bool isBiometricSupported = await localAuthentication.isDeviceSupported();
     //check if user has enabled biometrics.
-    //check  
+    //check
     bool canCheckBiometrics = await localAuthentication.canCheckBiometrics;
 
-  //if device supports biometrics and user has enabled biometrics, then authenticate.
+    //if device supports biometrics and user has enabled biometrics, then authenticate.
     if (isBiometricSupported && canCheckBiometrics) {
       try {
         isAuthenticated = await localAuthentication.authenticate(
-            options: const AuthenticationOptions(
+          options: const AuthenticationOptions(
             biometricOnly: true,
             sensitiveTransaction: true,
             useErrorDialogs: true,
             stickyAuth: false,
           ),
-            localizedReason: 'Scan your fingerprint to authenticate',
-            // biometricOnly: true,
-            // useErrorDialogs: true,
-            // stickyAuth: true
-            );
+          localizedReason: 'Scan your fingerprint to authenticate',
+          // biometricOnly: true,
+          // useErrorDialogs: true,
+          // stickyAuth: true
+        );
       } on PlatformException catch (e) {
-        print(e);
+        debugPrint(e.message);
       }
     }
     return isAuthenticated;

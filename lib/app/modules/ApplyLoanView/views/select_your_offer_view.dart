@@ -1,8 +1,7 @@
 import 'package:byitpay/app/modules/ApplyLoanView/controllers/apply_loan_view_controller.dart';
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
-import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ class SelectYourOfferView extends GetView<ApplyLoanViewController> {
       child: Scaffold(
         backgroundColor: white,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 22 ),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 22),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -28,7 +27,8 @@ class SelectYourOfferView extends GetView<ApplyLoanViewController> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      PrimaryText(title: "Select your offer", subTitle: ""),
+                      const PrimaryText(
+                          title: "Select your offer", subTitle: ""),
                       SvgPicture.asset(
                         "assets/icons/vector.svg",
                         height: 200,
@@ -36,18 +36,20 @@ class SelectYourOfferView extends GetView<ApplyLoanViewController> {
                       const SizedBox(
                         height: 19,
                       ),
-                      CustomText(text: "You’re pre-approved", fontSize: 22, letterSpacing: -0.2,),
+                      const CustomText(
+                        text: "You’re pre-approved",
+                        fontSize: 22,
+                        letterSpacing: -0.2,
+                      ),
                       const SizedBox(
                         height: 19,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
                         child: CustomText(
-                          text:
-                              MyConstants.Here_are,
+                          text: MyConstants.here,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-
                         ),
                       ),
                       const SizedBox(
@@ -58,12 +60,12 @@ class SelectYourOfferView extends GetView<ApplyLoanViewController> {
                               controller.fourMonth.value = false;
                               controller.fiveMonth.value = true;
                             },
-                            contentPadding: EdgeInsets.all(0),
+                            contentPadding: const EdgeInsets.all(0),
                             horizontalTitleGap: -1,
                             leading: SvgPicture.asset(controller.fiveMonth.value
                                 ? MyAssets.radioCheck
                                 : MyAssets.radioUncheck),
-                            title: CustomText(
+                            title: const CustomText(
                               text: "\$30,000 for 5 months",
                               fontSize: 16,
                               textAlign: TextAlign.start,
@@ -122,12 +124,12 @@ class SelectYourOfferView extends GetView<ApplyLoanViewController> {
                               controller.fourMonth.value = true;
                               controller.fiveMonth.value = false;
                             },
-                            contentPadding: EdgeInsets.all(0),
+                            contentPadding: const EdgeInsets.all(0),
                             horizontalTitleGap: -1,
                             leading: SvgPicture.asset(controller.fourMonth.value
                                 ? MyAssets.radioCheck
                                 : MyAssets.radioUncheck),
-                            title: CustomText(
+                            title: const CustomText(
                               text: "\$30,000 for 4 months",
                               fontSize: 16,
                               textAlign: TextAlign.start,
@@ -182,11 +184,10 @@ class SelectYourOfferView extends GetView<ApplyLoanViewController> {
                   ),
                 ),
               ),
-
               PrimaryButton(title: "Submit Application", onPress: () {}),
               TextButton(
                 onPressed: () {},
-                child: CustomText(
+                child: const CustomText(
                   text: "cancel",
                   fontSize: 16,
                   color: activePin,

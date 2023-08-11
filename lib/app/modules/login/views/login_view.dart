@@ -1,5 +1,6 @@
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
+import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +17,12 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: white,
       appBar: CustomAppBar(
+        text: "",
         backPress: () {
-          print("click");
+          debugPrint("click");
         },
       ),
       body: Padding(
@@ -40,23 +43,30 @@ class LoginView extends GetView<LoginController> {
                     height: 35,
                   ),
                   EditTextField(
-                    controller: controller.textEditingController,
+                    controller: controller.textEditingController.value,
                     suffixIcon: MyAssets.cancle,
                     isSecure: false,
                     lable: "Email",
+                    onChange: (value) {
+                      debugPrint(value);
+                      controller.emaiText.value = value;
+                    },
                   ),
                   const SizedBox(
                     height: 13,
                   ),
                   EditTextField(
-                    controller: controller.passEditingController,
+                    controller: controller.passEditingController.value,
                     suffixIcon: MyAssets.lock,
                     isSecure: false,
                     lable: "Password",
+                    onChange: (value) {
+                      controller.passwordText.value = value;
+                    },
                   ),
                   const SizedBox(height: 29),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 33),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 33),
                     child: CustomText(
                       text: "Email address not associated with an account",
                       fontSize: 15,
@@ -101,16 +111,23 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
             ),
-            PrimaryButton(
-              title: "Login",
-              onPress: () {},
-              color: buttonDisbaleColor,
-              textColor:
-                  // controller.textEditingController.text.isEmpty &&
-                  //         controller.passEditingController.text.isEmpty
-                  //     ?
-                  disbaleColor,
-            ),
+            Obx(() => PrimaryButton(
+                  title: "Login",
+                  onPress: () {
+                    if (controller.emaiText.value.isNotEmpty &&
+                        controller.passwordText.value.isNotEmpty) {
+                      Get.toNamed(Routes.TAB_VIEW);
+                    } else {}
+                  },
+                  color: controller.emaiText.value.isNotEmpty &&
+                          controller.passwordText.value.isNotEmpty
+                      ? primaryColor
+                      : buttonDisbaleColor,
+                  textColor: controller.emaiText.value.isNotEmpty &&
+                          controller.passwordText.value.isNotEmpty
+                      ? Colors.white
+                      : disbaleColor,
+                )),
             const SizedBox(
               height: 19,
             ),
@@ -152,7 +169,12 @@ class EditTextField extends StatelessWidget {
       this.showSuffixIcon = true,
       this.showLabel = true,
       this.showBorder = true,
-      this.showInputBorder = false});
+      this.onChange,
+      this.showInputBorder = false,
+      this.hintText,
+      this.fontWeight,
+      this.letterSpace,
+      this.textInputType});
   final String lable, suffixIcon;
   final TextEditingController controller;
   final bool isSecure;
@@ -160,6 +182,11 @@ class EditTextField extends StatelessWidget {
   final bool? showLabel;
   final bool? showBorder;
   final bool? showInputBorder;
+  final ValueChanged<String>? onChange;
+  final String? hintText;
+  final FontWeight? fontWeight;
+  final double? letterSpace;
+  final TextInputType? textInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -174,10 +201,16 @@ class EditTextField extends StatelessWidget {
               : Border.all(color: primaryColor.withOpacity(0.07))),
       child: TextFormField(
         cursorColor: monochrome,
+        keyboardType: textInputType ?? TextInputType.text,
         obscureText: false,
-        style: const TextStyle(
-            fontSize: 16, fontWeight: FontWeight.w400, color: Colors.black),
+        onChanged: onChange,
+        style: GoogleFonts.inter(
+            fontSize: 16,
+            letterSpacing: letterSpace ?? 0.0,
+            fontWeight: fontWeight ?? FontWeight.w400,
+            color: Colors.black),
         decoration: InputDecoration(
+          hintText: hintText ?? "",
           labelText: showLabel == false ? null : lable,
           suffixIconConstraints:
               const BoxConstraints(maxWidth: 20, maxHeight: 20),
@@ -232,12 +265,11 @@ class PrimaryText extends StatelessWidget {
 }
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({
-    super.key,
-    required this.backPress,
-  });
-  @override
+  const CustomAppBar({super.key, required this.backPress, this.text = ""});
+
   final Callback backPress;
+  final String? text;
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
@@ -245,6 +277,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       automaticallyImplyLeading: false,
+      title: CustomText(
+        text: text ?? "",
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+      ),
       leading: IconButton(
           onPressed: backPress,
           icon: const Icon(

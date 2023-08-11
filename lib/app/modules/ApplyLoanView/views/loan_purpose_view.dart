@@ -1,15 +1,13 @@
 import 'package:byitpay/app/modules/ApplyLoanView/controllers/apply_loan_view_controller.dart';
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:get/get.dart';
-import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 class LoanPurposeView extends GetView<ApplyLoanViewController> {
   const LoanPurposeView({Key? key}) : super(key: key);
@@ -18,7 +16,9 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: CustomAppBar(backPress: () {Get.back();}),
+      appBar: CustomAppBar(backPress: () {
+        Get.back();
+      }),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           padding: const EdgeInsets.all(27.0),
@@ -43,7 +43,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
               const SizedBox(
                 height: 16,
               ),
-              CustomText(
+              const CustomText(
                   text: "How long have you resided at your current address?",
                   fontSize: 14),
               const SizedBox(
@@ -88,7 +88,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
               const SizedBox(
                 height: 16,
               ),
-              CustomText(
+              const CustomText(
                   text: "What is your monthly housing cost?", fontSize: 14),
               const SizedBox(
                 height: 16,
@@ -110,7 +110,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomText(text: "Status", fontSize: 14),
+                        const CustomText(text: "Status", fontSize: 14),
                         const SizedBox(
                           height: 16,
                         ),
@@ -133,7 +133,8 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomText(text: "No. of dependents", fontSize: 14),
+                        const CustomText(
+                            text: "No. of dependents", fontSize: 14),
                         const SizedBox(
                           height: 16,
                         ),
@@ -214,7 +215,6 @@ class CustomDropDown extends StatelessWidget {
             // Step 4.
             items: item.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
-
                 value: value,
                 child: Text(
                   value,

@@ -1,7 +1,7 @@
 import 'package:byitpay/app/modules/ApplyLoanView/controllers/apply_loan_view_controller.dart';
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
 import 'package:byitpay/app/modules/ApplyLoanView/views/loan_purpose_view.dart';
-import 'package:byitpay/app/modules/TabView/views/home_tab_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_colors.dart';
@@ -26,12 +26,14 @@ class EmploymentStatusView extends GetView<ApplyLoanViewController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const PrimaryText(title: "Employment Status 👨🏽‍💻", subTitle: ""),
+                    const PrimaryText(
+                        title: "Employment Status 👨🏽‍💻", subTitle: ""),
                     const SizedBox(
                       height: 12,
                     ),
-                    CustomText(
-                        text: "What is your current employment status?", fontSize: 13),
+                    const CustomText(
+                        text: "What is your current employment status?",
+                        fontSize: 13),
                     const SizedBox(
                       height: 16,
                     ),
@@ -47,15 +49,17 @@ class EmploymentStatusView extends GetView<ApplyLoanViewController> {
                     const SizedBox(
                       height: 16,
                     ),
-                    CustomText(
-                        text: "How long have you been working there? ", fontSize: 13),
+                    const CustomText(
+                        text: "How long have you been working there? ",
+                        fontSize: 13),
                     const SizedBox(
                       height: 16,
                     ),
                     Obx(() => CustomDropDown(
                           title: "Duration",
                           item: controller.durationItems,
-                          selectedOption: controller.durationSelectedOption.value,
+                          selectedOption:
+                              controller.durationSelectedOption.value,
                           onchange: (String? value) {
                             controller.durationSelectedOption.value = value!;
                           },
@@ -65,7 +69,6 @@ class EmploymentStatusView extends GetView<ApplyLoanViewController> {
                 ),
               ),
             ),
-
             PrimaryButton(
                 title: "Next",
                 onPress: () {

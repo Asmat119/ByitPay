@@ -94,6 +94,7 @@ class PincodeView extends GetView<PincodeController> {
                                 statusBar2();
                                 Get.offAllNamed(Routes.HOME);
                               } else {
+                                // ignore: use_build_context_synchronously
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text('Authentication failed.'),
@@ -136,7 +137,7 @@ class PincodeView extends GetView<PincodeController> {
                                   if (inputText == "1234") {
                                     statusBar2();
                                     Get.offAllNamed(Routes.HOME);
-                                    print('Success');
+                                    debugPrint('Success');
                                     // return;
                                   }
                                   clears.value =
