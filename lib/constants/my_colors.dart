@@ -21,6 +21,8 @@ const purple = Color(0XFF5F38CA);
 const circleColor = Color(0XFFC4C4C4);
 const dropDownTextColor = Color(0XFF111827);
 
+const darkBlue800 = Color(0xff12033A);
+
 const white = Colors.white;
 const linearGradientProgressBar = LinearGradient(
     colors: [linearRed, linearBlue],

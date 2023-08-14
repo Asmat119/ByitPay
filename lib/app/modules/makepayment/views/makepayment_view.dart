@@ -10,7 +10,6 @@ import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:byitpay/model/laon_model.dart';
-import 'package:byitpay/widgets/receipt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -76,7 +75,7 @@ class MakepaymentView extends GetView<MakepaymentController> {
                 color: lightText,
               ),
             ),
-            Obx(() => CustomDropDown(
+            Obx(() => CustomDropDownWithoutHeading(
                   value: controller.dropdownValue.value,
                   list: controller.list,
                   onchange: (String? value) {
@@ -486,8 +485,8 @@ class BankTransferWidget extends StatelessWidget {
   }
 }
 
-class CustomDropDown extends StatelessWidget {
-  const CustomDropDown({
+class CustomDropDownWithoutHeading extends StatelessWidget {
+  const CustomDropDownWithoutHeading({
     super.key,
     required this.value,
     required this.list,

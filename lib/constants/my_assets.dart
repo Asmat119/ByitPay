@@ -35,8 +35,21 @@ class MyAssets {
   static String document = 'assets/icons/document.svg';
   static String support = 'assets/icons/support.svg';
   static String logout = 'assets/icons/logout.svg';
+  static String notifySVG = 'assets/icons/notify_vector.svg';
   static String check = 'assets/icons/check.svg';
+  static String contacts = 'assets/icons/contacts_vector.svg';
   static String whatsApp = 'assets/icons/Whatsapp.svg';
+  static String mic1 = 'assets/icons/Misc1.svg';
+  static String mic2 = 'assets/icons/Misc2.svg';
+  static String mic3 = 'assets/icons/Misc3.svg';
+  static String mic4 = 'assets/icons/Misc4.svg';
+  static String mic5 = 'assets/icons/Misc5.svg';
+  static String mic6 = 'assets/icons/Misc6.svg';
+  static String tableredit = 'assets/icons/tabler_edit.svg';
+  static String greenTick = 'assets/icons/greentick.svg';
+  static String bluePlus = 'assets/icons/bluePlus.svg';
+  static String submitVector = 'assets/icons/submit_vector.svg';
+
   static String chatting = 'assets/icons/chatting.svg';
   static String helpcneter = 'assets/icons/helpcenter.svg';
   static String mastercard2 = 'assets/icons/mastercard.svg';

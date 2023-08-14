@@ -1,7 +1,6 @@
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
 import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
-import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:byitpay/model/receipt_model.dart';

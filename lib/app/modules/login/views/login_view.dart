@@ -162,8 +162,8 @@ class LoginView extends GetView<LoginController> {
 class EditTextField extends StatelessWidget {
   const EditTextField(
       {super.key,
-      required this.lable,
-      required this.suffixIcon,
+      this.lable,
+      this.suffixIcon,
       required this.controller,
       required this.isSecure,
       this.showSuffixIcon = true,
@@ -175,7 +175,7 @@ class EditTextField extends StatelessWidget {
       this.fontWeight,
       this.letterSpace,
       this.textInputType});
-  final String lable, suffixIcon;
+  final String? lable, suffixIcon;
   final TextEditingController controller;
   final bool isSecure;
   final bool? showSuffixIcon;
@@ -200,6 +200,7 @@ class EditTextField extends StatelessWidget {
               ? null
               : Border.all(color: primaryColor.withOpacity(0.07))),
       child: TextFormField(
+        controller: controller,
         cursorColor: monochrome,
         keyboardType: textInputType ?? TextInputType.text,
         obscureText: false,
@@ -210,12 +211,15 @@ class EditTextField extends StatelessWidget {
             fontWeight: fontWeight ?? FontWeight.w400,
             color: Colors.black),
         decoration: InputDecoration(
+          hintStyle: GoogleFonts.inter(
+              fontSize: 16, fontWeight: FontWeight.w600, color: lightGrey),
           hintText: hintText ?? "",
-          labelText: showLabel == false ? null : lable,
+          labelText: showLabel == false ? null : lable ?? "",
           suffixIconConstraints:
               const BoxConstraints(maxWidth: 20, maxHeight: 20),
-          suffixIcon:
-              showSuffixIcon == false ? null : SvgPicture.asset(suffixIcon),
+          suffixIcon: showSuffixIcon == false
+              ? null
+              : SvgPicture.asset(suffixIcon ?? ""),
           isDense: true,
           alignLabelWithHint: false,
           focusedBorder: showInputBorder == true

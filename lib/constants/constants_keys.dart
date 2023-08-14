@@ -33,4 +33,15 @@ class MyConstants {
   static const String heading3 = "What is your processing time?";
   static const String msg3 =
       "Once all document is submitted, Loans are processed within 24-48hrs. ";
+
+  static const String weWill =
+      "We will review your request to update your name within 1-2 business days. if you would like to  send additional documents for verification, please reply to the confirmation email to to the email address we have on file.  ";
+
+  static const String sorry =
+      "Sorry to see you go. Bylt Pay will return any funds remaining in your account within 30 days via check send to the verified mailing address we have in our records. We will retain your personal information as long as required by applicable law. ";
+  static const String please =
+      "Please choose the reason for account closure and confirm that you would like to close your account by entering the last 4 digits of your Tax payer Number (TRN). ";
+
+  static const String sorrytoseeyou =
+      "Sorry to see you go 🙁. We will review your request to close your Bylt pay account within 1-2 business days. ";
 }

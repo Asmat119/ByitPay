@@ -32,6 +32,16 @@ abstract class Routes {
   static const DOCUMENT = _Paths.DOCUMENT;
   static const HELPCENTER = _Paths.HELPCENTER;
   static const CUSTOMERSUPPORT = _Paths.CUSTOMERSUPPORT;
+  static const CREATEPIN = _Paths.CREATEPIN;
+  static const ENABLENOTIFICATION = _Paths.ENABLENOTIFICATION;
+  static const ACCOUNT_INFO = _Paths.ACCOUNT_INFO;
+  static const EDIT_ACCOUNT = _Paths.EDIT_ACCOUNT;
+  static const PERSONALINFO = _Paths.PERSONALINFO;
+  static const CONTACTINFO = _Paths.CONTACTINFO;
+  static const EDITADDRESS = _Paths.EDITADDRESS;
+  static const NAMECHNAGE = _Paths.NAMECHNAGE;
+  static const CLOSEACCOUNT = _Paths.CLOSEACCOUNT;
+  static const SIGNUP = _Paths.SIGNUP;
 }
 
 abstract class _Paths {
@@ -63,4 +73,14 @@ abstract class _Paths {
   static const DOCUMENT = '/document';
   static const HELPCENTER = '/helpcenter';
   static const CUSTOMERSUPPORT = '/customersupport';
+  static const CREATEPIN = '/createpin';
+  static const ENABLENOTIFICATION = '/enablenotification';
+  static const ACCOUNT_INFO = '/account-info';
+  static const EDIT_ACCOUNT = '/edit-info';
+  static const PERSONALINFO = '/personal-info';
+  static const CONTACTINFO = '/conatact-info';
+  static const EDITADDRESS = '/editaddress';
+  static const NAMECHNAGE = '/namechange';
+  static const CLOSEACCOUNT = '/closeaccount';
+  static const SIGNUP = '/signup';
 }

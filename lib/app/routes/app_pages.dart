@@ -1,7 +1,5 @@
-import 'package:byitpay/app/modules/generalSetting/views/customer_support_view.dart';
-import 'package:byitpay/app/modules/generalSetting/views/document_view.dart';
-import 'package:byitpay/app/modules/generalSetting/views/helpcenter_view.dart';
 import 'package:get/get.dart';
+
 import '../../widgets/receipt.dart';
 import '../modules/ApplyLoanView/bindings/apply_loan_view_binding.dart';
 import '../modules/ApplyLoanView/views/apply_loan_view_view.dart';
@@ -22,8 +20,22 @@ import '../modules/TabView/views/LoanTab/loan_statement_view.dart';
 import '../modules/TabView/views/LoanTab/loan_view.dart';
 import '../modules/TabView/views/ProfileTab/views/profile_view.dart';
 import '../modules/TabView/views/tab_view_view.dart';
+import '../modules/accountInfo/bindings/account_info_binding.dart';
+import '../modules/accountInfo/views/account_info_view.dart';
+import '../modules/accountInfo/views/close_account_view.dart';
+import '../modules/accountInfo/views/edit_account_view.dart';
+import '../modules/accountInfo/views/name_change_view.dart';
+import '../modules/accountInfo/views/tabs/contact_info_view.dart';
+import '../modules/accountInfo/views/tabs/edit_address_view.dart';
+import '../modules/accountInfo/views/tabs/personal_info_view.dart';
 import '../modules/changepin/bindings/changepin_binding.dart';
 import '../modules/changepin/views/changepin_view.dart';
+import '../modules/createpin/bindings/createpin_binding.dart';
+import '../modules/createpin/views/createpin_view.dart';
+import '../modules/createpin/views/enablenotification_view.dart';
+import '../modules/generalSetting/views/customer_support_view.dart';
+import '../modules/generalSetting/views/document_view.dart';
+import '../modules/generalSetting/views/helpcenter_view.dart';
 import '../modules/generalSetting/views/notification_setting_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -33,6 +45,8 @@ import '../modules/makepayment/bindings/makepayment_binding.dart';
 import '../modules/makepayment/views/makepayment_view.dart';
 import '../modules/pincode/bindings/pincode_binding.dart';
 import '../modules/pincode/views/pincode_view.dart';
+import '../modules/signup/bindings/signup_binding.dart';
+import '../modules/signup/views/signup_view.dart';
 
 part 'app_routes.dart';
 
@@ -40,7 +54,7 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.LOGIN;
-  static const INITIALPINCODE = Routes.PROFILE;
+  static const INITIALPINCODE = Routes.SIGNUP;
 
   static final routes = [
     GetPage(
@@ -171,6 +185,56 @@ class AppPages {
       name: _Paths.MAKEPAYMENT,
       page: () => MakepaymentView(),
       binding: MakepaymentBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATEPIN,
+      page: () => const CreatepinView(),
+      binding: CreatepinBinding(),
+    ),
+    GetPage(
+      name: _Paths.ENABLENOTIFICATION,
+      page: () => const EnablenotificationView(),
+      binding: CreatepinBinding(),
+    ),
+    GetPage(
+      name: _Paths.ACCOUNT_INFO,
+      page: () => const AccountInfoView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_ACCOUNT,
+      page: () => const EditAccountView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.PERSONALINFO,
+      page: () => const PersonalInfoView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.CONTACTINFO,
+      page: () => const ContactInfoView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDITADDRESS,
+      page: () => const EditAddressView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.NAMECHNAGE,
+      page: () => const NameChangeView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.CLOSEACCOUNT,
+      page: () => const CloseAccountView(),
+      binding: AccountInfoBinding(),
+    ),
+    GetPage(
+      name: _Paths.SIGNUP,
+      page: () => SignupView(),
+      binding: SignupBinding(),
     ),
   ];
 }
