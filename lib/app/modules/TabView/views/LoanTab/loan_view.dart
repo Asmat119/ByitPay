@@ -26,12 +26,7 @@ class LoanView extends GetView<TabViewController> {
           ),
           elevation: 0,
           backgroundColor: primaryColor,
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: const Icon(Icons.arrow_back_ios),
-          ),
+          automaticallyImplyLeading: false,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 22),
@@ -344,11 +339,11 @@ class GradientProgressBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
               color: isGradientdBacground!
                   ? backgroundProgressColor
-                  : Colors.black.withOpacity(0.71)),
+                  : Colors.black.withOpacity(0.66)),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               gradient:
-                  isGradientdBacground! ? linearGradientProgressBar : null),
+                  !isGradientdBacground! ? linearGradientProgressBar : null),
         ),
         Container(
           width: MediaQuery.of(context).size.width * percent,

@@ -42,55 +42,11 @@ class LoanOverviewView extends GetView<ApplyLoanViewController> {
                         (index) => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ListTile(
-                              enabled: false,
-                              contentPadding: const EdgeInsets.all(0),
-                              title: CustomText(
-                                text: controller.confirmLoanList[index].title,
-                                fontSize: 14,
-                                color: lightText,
-                                textAlign: TextAlign.left,
-                                letterSpacing: -0.16,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              subtitle: CustomText(
-                                text:
-                                    controller.confirmLoanList[index].subTitle,
-                                fontSize: 16,
-                                color: Colors.black,
-                                textAlign: TextAlign.left,
-                                letterSpacing: -0.4,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              trailing: ElevatedButton(
-                                style: ButtonStyle(
-                                    overlayColor:
-                                        MaterialStateProperty.resolveWith(
-                                      (states) {
-                                        return states
-                                                .contains(MaterialState.pressed)
-                                            ? grey.withOpacity(0.5)
-                                            : null;
-                                      },
-                                    ),
-                                    backgroundColor: MaterialStateProperty.all(
-                                        primaryColor.withOpacity(0.04)),
-                                    elevation: MaterialStateProperty.all(0),
-                                    shape: MaterialStateProperty.all(
-                                        RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(100)))),
-                                onPressed: () {
-                                  debugPrint("object");
-                                },
-                                child: const CustomText(
-                                  text: "Edit",
-                                  fontSize: 14,
-                                  color: primaryColor,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              onTap: () {},
+                            ListTileWithEditButton(
+                              title: controller.confirmLoanList[index].title,
+                              subTitle: controller.confirmLoanList[index].subTitle,
+                              onTab: (){},
+
                             ),
                             index <= 1 ? const Divider() : const Text(""),
                           ],
@@ -134,6 +90,70 @@ class LoanOverviewView extends GetView<ApplyLoanViewController> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ListTileWithEditButton extends StatelessWidget {
+  const ListTileWithEditButton({
+    super.key,
+     required this.title, required this.subTitle, required this.onTab,
+
+  });
+
+  final String title;
+  final String subTitle;
+  final VoidCallback onTab;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      enabled: false,
+      contentPadding: const EdgeInsets.all(0),
+      title: CustomText(
+        text: title,
+        fontSize: 14,
+        color: lightText,
+        textAlign: TextAlign.left,
+        letterSpacing: -0.16,
+        fontWeight: FontWeight.w600,
+      ),
+      subtitle: CustomText(
+        text:
+            subTitle,
+        fontSize: 16,
+        color: Colors.black,
+        textAlign: TextAlign.left,
+        letterSpacing: -0.4,
+        fontWeight: FontWeight.w600,
+      ),
+      trailing: ElevatedButton(
+        style: ButtonStyle(
+            overlayColor:
+                MaterialStateProperty.resolveWith(
+              (states) {
+                return states
+                        .contains(MaterialState.pressed)
+                    ? grey.withOpacity(0.5)
+                    : null;
+              },
+            ),
+            backgroundColor: MaterialStateProperty.all(
+                primaryColor.withOpacity(0.04)),
+            elevation: MaterialStateProperty.all(0),
+            shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(100)))),
+        onPressed: onTab,
+        child: const CustomText(
+          text: "Edit",
+          fontSize: 14,
+          color: primaryColor,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      onTap: () {},
     );
   }
 }

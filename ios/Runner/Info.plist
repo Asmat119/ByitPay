@@ -52,5 +52,9 @@
 
 		<key>NSFaceIDUsageDescription</key>
 		<string>Why is my app authenticating using face id?</string>
+		<key>NSCameraUsageDescription</key>
+        <string>This app needs access to camera when used</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>This app needs access to microphone when used</string>
 	</dict>
 </plist>

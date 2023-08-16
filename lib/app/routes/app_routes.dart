@@ -42,6 +42,11 @@ abstract class Routes {
   static const NAMECHNAGE = _Paths.NAMECHNAGE;
   static const CLOSEACCOUNT = _Paths.CLOSEACCOUNT;
   static const SIGNUP = _Paths.SIGNUP;
+  static const VERIFICATION = _Paths.VERIFICATION;
+  static const PERSONALSIGNUP = _Paths.PERSONALSIGNUP;
+  static const VERIFYEMAIL = _Paths.VERIFYEMAIL;
+  static const PERSONAL_VERIFICATION_IDENTITY = _Paths.PERSONAL_VERIFICATION_IDENTITY;
+  static const TAKESELFIE = _Paths.TAKESELFIE;
 }
 
 abstract class _Paths {
@@ -83,4 +88,11 @@ abstract class _Paths {
   static const NAMECHNAGE = '/namechange';
   static const CLOSEACCOUNT = '/closeaccount';
   static const SIGNUP = '/signup';
+  static const VERIFICATION = '/verification';
+  static const PERSONALSIGNUP = '/personalsignup';
+  static const VERIFYEMAIL = '/verifyemail';
+  static const PERSONAL_VERIFICATION_IDENTITY = '/personal_verification';
+  static const TAKESELFIE = '/takeselfie';
+
+
 }

@@ -1,17 +1,11 @@
-import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
-import 'package:byitpay/model/help_model.dart';
 import 'package:byitpay/model/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GeneralSettingController extends GetxController {
-  List<HelpModel> helperList = [
-    HelpModel(heading: MyConstants.heading1, message: MyConstants.msg1),
-    HelpModel(heading: MyConstants.heading2, message: MyConstants.msg2),
-    HelpModel(heading: MyConstants.heading3, message: MyConstants.msg3),
-  ];
+
 
   RxBool onOff = true.obs;
   Rx<TextEditingController> searchEditingController =

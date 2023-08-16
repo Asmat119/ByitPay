@@ -1,8 +1,11 @@
+import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:byitpay/model/details_model.dart';
+import 'package:byitpay/model/help_model.dart';
 import 'package:byitpay/model/laon_model.dart';
 import 'package:byitpay/model/profile_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class TabViewController extends GetxController {
@@ -14,6 +17,14 @@ class TabViewController extends GetxController {
     "May 2022",
     "June 2022",
   ];
+  List<HelpModel> helperList = [
+    HelpModel(heading: MyConstants.heading1, message: MyConstants.msg1),
+    HelpModel(heading: MyConstants.heading2, message: MyConstants.msg2),
+    HelpModel(heading: MyConstants.heading3, message: MyConstants.msg3),
+  ];
+  Rx<TextEditingController> searchEditingController =
+      TextEditingController().obs;
+  RxString searchText = "".obs;
 
   List<ProfileModel> profileModel = [
     ProfileModel(

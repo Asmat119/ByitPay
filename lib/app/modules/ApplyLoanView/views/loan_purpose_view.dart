@@ -172,6 +172,7 @@ class CustomDropDown extends StatelessWidget {
       required this.item,
       required this.selectedOption,
       required this.onchange,
+        this.labelText,
       this.label = true});
 
   final String title;
@@ -179,6 +180,7 @@ class CustomDropDown extends StatelessWidget {
   final String selectedOption;
   final ValueChanged<String?> onchange;
   final bool? label;
+  final CustomText? labelText;
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +201,7 @@ class CustomDropDown extends StatelessWidget {
                   "",
                   style: TextStyle(fontSize: 0),
                 )
-              : CustomText(text: title, fontSize: 14),
+              : labelText ?? CustomText(text: title, fontSize: 14),
           DropdownButton<String>(
             isDense: true,
 

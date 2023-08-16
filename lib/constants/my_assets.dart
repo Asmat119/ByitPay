@@ -40,18 +40,27 @@ class MyAssets {
   static String contacts = 'assets/icons/contacts_vector.svg';
   static String whatsApp = 'assets/icons/Whatsapp.svg';
   static String mic1 = 'assets/icons/Misc1.svg';
+
   static String mic2 = 'assets/icons/Misc2.svg';
   static String mic3 = 'assets/icons/Misc3.svg';
   static String mic4 = 'assets/icons/Misc4.svg';
   static String mic5 = 'assets/icons/Misc5.svg';
+  static String driver = 'assets/icons/driver.svg';
+  static String passport = 'assets/icons/Passport.svg';
+  static String idCard = 'assets/icons/ID Card.svg';
   static String mic6 = 'assets/icons/Misc6.svg';
   static String tableredit = 'assets/icons/tabler_edit.svg';
   static String greenTick = 'assets/icons/greentick.svg';
+  static String selfie = 'assets/icons/selfie.svg';
   static String bluePlus = 'assets/icons/bluePlus.svg';
   static String submitVector = 'assets/icons/submit_vector.svg';
+  static String divider = 'assets/icons/Divider.svg';
 
   static String chatting = 'assets/icons/chatting.svg';
   static String helpcneter = 'assets/icons/helpcenter.svg';
+  static String flash = 'assets/icons/flash.svg';
+  static String flip = 'assets/icons/flip.svg';
+  static String capture = 'assets/icons/Capture.svg';
   static String mastercard2 = 'assets/icons/mastercard.svg';
   static String mastercard = 'assets/icons/mc_symbol.svg';
   static String simpleBell = 'assets/icons/simple_bell.svg';

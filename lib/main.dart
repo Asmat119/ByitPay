@@ -1,4 +1,5 @@
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,8 +7,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
+late List<CameraDescription> cameras;
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main() {
+  cameras = await availableCameras();
   runApp(
     ScreenUtilInit(
         designSize: const Size(360, 690),

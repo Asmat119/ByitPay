@@ -1,0 +1,34 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icons / Circle / 48 / ID Card">
+<g id="Icon">
+<g id="Oval">
+<circle id="Oval_2" cx="24" cy="24" r="24" fill="url(#paint0_linear_492_3833)"/>
+<mask id="mask0_492_3833" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+<circle id="Oval_3" cx="24" cy="24" r="24" fill="white"/>
+</mask>
+<g mask="url(#mask0_492_3833)">
+<rect id="Rectangle" opacity="0.12" x="-9" y="-5" width="30" height="33" rx="2" fill="black"/>
+<circle id="Oval_4" opacity="0.12" cx="37" cy="40" r="12" stroke="black" stroke-width="6"/>
+<g id="Group">
+<rect id="Rectangle_2" x="10" y="8.5" width="40" height="31" rx="3" fill="#227955"/>
+<path id="Rectangle_3" fill-rule="evenodd" clip-rule="evenodd" d="M10 11.5C10 9.84315 11.3431 8.5 13 8.5H47C48.6569 8.5 50 9.84315 50 11.5V32.5C50 34.1569 48.6569 35.5 47 35.5H13C11.3431 35.5 10 34.1569 10 32.5V11.5Z" fill="url(#paint1_linear_492_3833)"/>
+<rect id="Rectangle_4" x="15" y="14.5" width="12" height="14" rx="1" fill="#B7D4C7"/>
+<path id="Path" d="M32 16.5H50" stroke="#4A9475" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Path_2" opacity="0.32" d="M32 21.5H49" stroke="#4A9475" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Path_3" opacity="0.32" d="M32 25.5H44" stroke="#4A9475" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_492_3833" x1="-24" y1="24" x2="24" y2="72" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8FE6C8"/>
+<stop offset="1" stop-color="#268B61"/>
+</linearGradient>
+<linearGradient id="paint1_linear_492_3833" x1="10" y1="8.5" x2="10" y2="35.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#D5E8E0"/>
+</linearGradient>
+</defs>
+</svg>

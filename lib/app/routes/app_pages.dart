@@ -1,3 +1,9 @@
+import 'package:byitpay/app/modules/signup/views/personal_sign_up_view.dart';
+import 'package:byitpay/app/modules/signup/views/personal_verify_identity_view.dart';
+import 'package:byitpay/app/modules/signup/views/take_selfie_view.dart';
+import 'package:byitpay/app/modules/signup/views/verify_email_view.dart';
+import 'package:byitpay/app/modules/verification/bindings/verification_binding.dart';
+import 'package:byitpay/app/modules/verification/views/verification_view.dart';
 import 'package:get/get.dart';
 
 import '../../widgets/receipt.dart';
@@ -54,7 +60,7 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.LOGIN;
-  static const INITIALPINCODE = Routes.SIGNUP;
+  static const INITIALPINCODE = Routes.PINCODE;
 
   static final routes = [
     GetPage(
@@ -235,6 +241,32 @@ class AppPages {
       name: _Paths.SIGNUP,
       page: () => SignupView(),
       binding: SignupBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFICATION,
+      page: () =>  VerificationView(),
+      binding: VerificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.PERSONALSIGNUP,
+      page: () => const PersonalSignUpView(),
+      binding: SignupBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFYEMAIL,
+      page: () => const VerifyEmailView(),
+
+    ),
+    GetPage(
+      name: _Paths.TAKESELFIE,
+      page: () => const TakeSelfieView(),
+
+    ),
+    GetPage(
+      name: _Paths.PERSONAL_VERIFICATION_IDENTITY,
+      page: () => const PersonalVerifyIdentityView(),
+      binding: SignupBinding(),
+
     ),
   ];
 }

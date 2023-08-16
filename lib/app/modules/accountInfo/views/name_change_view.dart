@@ -159,10 +159,12 @@ class DocumentCard extends StatelessWidget {
     required this.isShowText,
     required this.iconColor,
     required this.iconPath,
+    this.onTab,
   });
   final String heading, message, iconPath;
   final bool isShowText;
   final Color iconColor;
+  final VoidCallback? onTab;
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +203,7 @@ class DocumentCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: onTab ?? (){},
                 elevation: 0,
                 highlightElevation: 0,
                 focusElevation: 0,

@@ -111,28 +111,39 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
             ),
-            Obx(() => PrimaryButton(
-                  title: "Login",
-                  onPress: () {
-                    if (controller.emaiText.value.isNotEmpty &&
-                        controller.passwordText.value.isNotEmpty) {
-                      Get.toNamed(Routes.TAB_VIEW);
-                    } else {}
-                  },
-                  color: controller.emaiText.value.isNotEmpty &&
-                          controller.passwordText.value.isNotEmpty
-                      ? primaryColor
-                      : buttonDisbaleColor,
-                  textColor: controller.emaiText.value.isNotEmpty &&
-                          controller.passwordText.value.isNotEmpty
-                      ? Colors.white
-                      : disbaleColor,
-                )),
+            Obx(() => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 22.0),
+              child: PrimaryButton(
+                    title: "Login",
+                    fontWeight: FontWeight.w600,
+                    onPress: () {
+                      if (controller.emaiText.value.isNotEmpty &&
+                          controller.passwordText.value.isNotEmpty) {
+                        controller.emaiText.value = "";
+                        controller.passwordText.value = "";
+                        controller.textEditingController.value.text = "";
+                        controller.passEditingController.value.text = "";
+
+                        Get.toNamed(Routes.VERIFICATION, arguments: "tab");
+                      } else {}
+                    },
+                    color: controller.emaiText.value.isNotEmpty &&
+                            controller.passwordText.value.isNotEmpty
+                        ? primaryColor
+                        : buttonDisbaleColor,
+                    textColor: controller.emaiText.value.isNotEmpty &&
+                            controller.passwordText.value.isNotEmpty
+                        ? Colors.white
+                        : disbaleColor,
+                  ),
+            )),
             const SizedBox(
               height: 19,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(Routes.SIGNUP);
+              },
               child: RichText(
                 text: TextSpan(
                   children: <TextSpan>[
@@ -203,7 +214,7 @@ class EditTextField extends StatelessWidget {
         controller: controller,
         cursorColor: monochrome,
         keyboardType: textInputType ?? TextInputType.text,
-        obscureText: false,
+        obscureText: isSecure,
         onChanged: onChange,
         style: GoogleFonts.inter(
             fontSize: 16,
@@ -231,8 +242,8 @@ class EditTextField extends StatelessWidget {
                   borderSide: BorderSide(color: lightText, width: 0.7))
               : InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          labelStyle: const TextStyle(
-              color: grey, fontSize: 16, fontWeight: FontWeight.w500),
+          labelStyle:  GoogleFonts.inter(
+              color: grey, fontSize: 14, fontWeight: FontWeight.w500),
         ),
       ),
     );
@@ -254,7 +265,7 @@ class PrimaryText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold),
+          style: GoogleFonts.inter(fontSize: 28, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 12,

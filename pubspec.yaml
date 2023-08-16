@@ -21,6 +21,8 @@ dependencies:
   flutter: 
     sdk: flutter
   dotted_line: ^3.2.2
+  flutter_otp_text_field: ^1.1.1
+  camera: ^0.10.5+3
 
 dev_dependencies: 
   flutter_lints: 2.0.2

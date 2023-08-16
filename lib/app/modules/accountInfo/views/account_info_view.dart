@@ -32,7 +32,9 @@ class AccountInfoView extends GetView<AccountInfoController> {
                     Row(
                       children: [
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.back();
+                            },
                             icon: const Icon(
                               Icons.arrow_back_ios_rounded,
                               color: monochrome,

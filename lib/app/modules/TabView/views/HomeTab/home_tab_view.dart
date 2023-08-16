@@ -15,230 +15,345 @@ class HomeTabView extends GetView<TabViewController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize:
-              const Size.fromHeight(266.0), // here the desired height
-          child: Container(
-            decoration: const BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(24),
-                    bottomRight: Radius.circular(24))),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 16),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage(MyAssets.profile),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 11),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Welcome,",
-                              style: TextStyle(
-                                  color: activePin,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(height: 1),
-                            Text(
-                              "Andrea Plummer",
-                              style: TextStyle(
-                                  color: white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Spacer(),
-                      IconButton(
-                          onPressed: () {},
-                          icon: SvgPicture.asset(MyAssets.chat))
-                    ],
-                  ),
-                  Container(
-                    width: double.infinity,
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-                    padding:
-                        const EdgeInsets.only(left: 18, bottom: 9, top: 18),
-                    decoration: const BoxDecoration(
-                        gradient: gradient,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(16),
-                          bottomRight: Radius.circular(16),
-                        )),
-                    child: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Personal Loan Balance",
-                            style: TextStyle(
-                                color: white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            "\$0 JMD",
-                            style: TextStyle(
-                                color: white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ]),
-                  ),
-                  const SizedBox(
-                    height: 12,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      HeaderCustomButton(
-                        name: "Apply",
-                        iconPath: MyAssets.apply,
-                        onTab: () {
-                          debugPrint("ajajja");
-                          Get.toNamed(Routes.APPLY_LOAN_VIEW);
-                        },
-                      ),
-                      HeaderCustomButton(
-                        name: "Pay",
-                        iconPath: MyAssets.pay,
-                        onTab: () {},
-                      ),
-                      HeaderCustomButton(
-                        name: "Loan Details",
-                        iconPath: MyAssets.details,
-                        onTab: () {},
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          )),
+      // appBar: PreferredSize(
+      //     preferredSize:
+      //         const Size.fromHeight(266.0), // here the desired height
+      //     child: Container(
+      //       decoration: const BoxDecoration(
+      //           color: primaryColor,
+      //           borderRadius: BorderRadius.only(
+      //               bottomLeft: Radius.circular(24),
+      //               bottomRight: Radius.circular(24))),
+      //       child: Padding(
+      //         padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 16),
+      //         child: Column(
+      //           children: [
+      //             Row(
+      //               children: [
+      //                 CircleAvatar(
+      //                   backgroundImage: AssetImage(MyAssets.profile),
+      //                 ),
+      //                 const Padding(
+      //                   padding: EdgeInsets.symmetric(horizontal: 11),
+      //                   child: Column(
+      //                     crossAxisAlignment: CrossAxisAlignment.start,
+      //                     children: [
+      //                       Text(
+      //                         "Welcome,",
+      //                         style: TextStyle(
+      //                             color: activePin,
+      //                             fontWeight: FontWeight.w600),
+      //                       ),
+      //                       SizedBox(height: 1),
+      //                       Text(
+      //                         "Andrea Plummer",
+      //                         style: TextStyle(
+      //                             color: white,
+      //                             fontSize: 16,
+      //                             fontWeight: FontWeight.w500),
+      //                       ),
+      //                     ],
+      //                   ),
+      //                 ),
+      //                 const Spacer(),
+      //                 IconButton(
+      //                     onPressed: () {},
+      //                     icon: SvgPicture.asset(MyAssets.chat))
+      //               ],
+      //             ),
+      //             Container(
+      //               width: double.infinity,
+      //               margin:
+      //                   const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+      //               padding:
+      //                   const EdgeInsets.only(left: 18, bottom: 9, top: 18),
+      //               decoration: const BoxDecoration(
+      //                   gradient: gradient,
+      //                   borderRadius: BorderRadius.only(
+      //                     bottomLeft: Radius.circular(16),
+      //                     bottomRight: Radius.circular(16),
+      //                   )),
+      //               child: const Column(
+      //                   crossAxisAlignment: CrossAxisAlignment.start,
+      //                   children: [
+      //                     Text(
+      //                       "Personal Loan Balance",
+      //                       style: TextStyle(
+      //                           color: white,
+      //                           fontSize: 16,
+      //                           fontWeight: FontWeight.w600),
+      //                     ),
+      //                     SizedBox(
+      //                       height: 8,
+      //                     ),
+      //                     Text(
+      //                       "\$0 JMD",
+      //                       style: TextStyle(
+      //                           color: white,
+      //                           fontSize: 18,
+      //                           fontWeight: FontWeight.w600),
+      //                     ),
+      //                   ]),
+      //             ),
+      //             const SizedBox(
+      //               height: 12,
+      //             ),
+      //             Row(
+      //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //               children: [
+      //                 HeaderCustomButton(
+      //                   name: "Apply",
+      //                   iconPath: MyAssets.apply,
+      //                   onTab: () {
+      //                     debugPrint("ajajja");
+      //                     Get.toNamed(Routes.APPLY_LOAN_VIEW);
+      //                   },
+      //                 ),
+      //                 HeaderCustomButton(
+      //                   name: "Pay",
+      //                   iconPath: MyAssets.pay,
+      //                   onTab: () {},
+      //                 ),
+      //                 HeaderCustomButton(
+      //                   name: "Loan Details",
+      //                   iconPath: MyAssets.details,
+      //                   onTab: () {},
+      //                 )
+      //               ],
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     )
+      // ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(10.0),
+
         scrollDirection: Axis.vertical,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(
-              height: 12,
-            ),
             Container(
-              constraints: const BoxConstraints(minHeight: 200),
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(boxShadow: const [
-                BoxShadow(color: Colors.black12, blurRadius: 1)
-              ], color: white, borderRadius: BorderRadius.circular(8)),
-              child: Column(children: [
-                const Row(
+              decoration: const BoxDecoration(
+                  color: primaryColor,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(24),
+                      bottomRight: Radius.circular(24))),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 27, vertical: 16),
+                child: Column(
                   children: [
-                    CustomText(
-                      text: "Payment History",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                    ),
-                    Spacer(),
-                    CustomText(
-                      text: "View All",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: lightPurple,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                isFlag
-                    ? Row(
-                        children: [
-                          SvgPicture.asset(MyAssets.clock),
-                          const SizedBox(
-                            width: 12,
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage(MyAssets.profile),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 11),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Welcome,",
+                                style: TextStyle(
+                                    color: activePin,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(height: 1),
+                              Text(
+                                "Andrea Plummer",
+                                style: TextStyle(
+                                    color: white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
-                          CustomText(
-                            text: "No transaction yet",
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: grey.withOpacity(0.5),
-                          ),
-                        ],
-                      )
-                    : Column(
-                        children: List.generate(
-                            10, (index) => const PaymentHistoryCard()),
-                      )
-              ]),
-            ),
-            const SizedBox(height: 12),
-            Container(
-              constraints: const BoxConstraints(minHeight: 150),
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(boxShadow: const [
-                BoxShadow(color: Colors.black12, blurRadius: 1)
-              ], color: white, borderRadius: BorderRadius.circular(8)),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CustomText(
-                      text: "Bylt Loan",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
+                        ),
+                        const Spacer(),
+                        IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(MyAssets.chat))
+                      ],
+                    ),
+                    Container(
+                      width: double.infinity,
+                      margin:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                      padding:
+                      const EdgeInsets.only(left: 18, bottom: 9, top: 18),
+                      decoration: const BoxDecoration(
+                          gradient: gradient,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(16),
+                            bottomRight: Radius.circular(16),
+                          )),
+                      child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Personal Loan Balance",
+                              style: TextStyle(
+                                  color: white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "\$0 JMD",
+                              style: TextStyle(
+                                  color: white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ]),
                     ),
                     const SizedBox(
                       height: 12,
                     ),
-                    CustomText(
-                      text:
-                          "Short on cash? Borrow on your terms to cover unexpected emergency up to \$100,000.",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      textAlign: TextAlign.start,
-                      color: grey.withOpacity(0.5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        HeaderCustomButton(
+                          name: "Apply",
+                          iconPath: MyAssets.apply,
+                          onTab: () {
+                            debugPrint("ajajja");
+                            Get.toNamed(Routes.APPLY_LOAN_VIEW);
+                          },
+                        ),
+                        HeaderCustomButton(
+                          name: "Pay",
+                          iconPath: MyAssets.pay,
+                          onTab: () {},
+                        ),
+                        HeaderCustomButton(
+                          name: "Loan Details",
+                          iconPath: MyAssets.details,
+                          onTab: () {},
+                        )
+                      ],
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    const Divider(),
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: const Row(
-                        children: [
-                          CustomText(
-                            text: "View rates",
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                            color: activePin,
-                          ),
-                          Spacer(),
-                          Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            size: 18,
-                            color: activePin,
-                          )
-                        ],
-                      ),
-                    ),
-                  ]),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(
-              height: 16,
+              height: 12,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 200),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(boxShadow: const [
+                      BoxShadow(color: Colors.black12, blurRadius: 1)
+                    ], color: white, borderRadius: BorderRadius.circular(8)),
+                    child: Column(children: [
+                      const Row(
+                        children: [
+                          CustomText(
+                            text: "Payment History",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                          Spacer(),
+                          CustomText(
+                            text: "View All",
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: lightPurple,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      isFlag
+                          ? Row(
+                              children: [
+                                SvgPicture.asset(MyAssets.clock),
+                                const SizedBox(
+                                  width: 12,
+                                ),
+                                CustomText(
+                                  text: "No transaction yet",
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: grey.withOpacity(0.5),
+                                ),
+                              ],
+                            )
+                          : Column(
+                              children: List.generate(
+                                  10, (index) => const PaymentHistoryCard()),
+                            )
+                    ]),
+                  ),
+                  const SizedBox(height: 12),
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 150),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(boxShadow: const [
+                      BoxShadow(color: Colors.black12, blurRadius: 1)
+                    ], color: white, borderRadius: BorderRadius.circular(8)),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const CustomText(
+                            text: "Bylt Loan",
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          CustomText(
+                            text:
+                                "Short on cash? Borrow on your terms to cover unexpected emergency up to \$100,000.",
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            textAlign: TextAlign.start,
+                            color: grey.withOpacity(0.5),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          const Divider(),
+                          const SizedBox(
+                            height: 6,
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: const Row(
+                              children: [
+                                CustomText(
+                                  text: "View rates",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: activePin,
+                                ),
+                                Spacer(),
+                                Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  size: 18,
+                                  color: activePin,
+                                )
+                              ],
+                            ),
+                          ),
+                        ]),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

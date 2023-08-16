@@ -1,6 +1,7 @@
 import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/TabView/views/LoanTab/loan_view.dart';
 import 'package:byitpay/app/modules/TabView/views/ProfileTab/views/profile_view.dart';
+import 'package:byitpay/app/modules/generalSetting/views/helpcenter_view.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class TabViewView extends GetView<TabViewController> {
   final List<Widget> _screens = [
     const HomeTabView(),
     const LoanView(),
-    const Text("THE"),
+    const HelpcenterView(),
     const ProfileView()
   ];
 
