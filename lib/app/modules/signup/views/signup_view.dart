@@ -1,4 +1,5 @@
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
+import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
@@ -7,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+
 import '../controllers/signup_controller.dart';
 
 class SignupView extends GetView<SignupController> {
@@ -40,9 +41,10 @@ class SignupView extends GetView<SignupController> {
                               subTitle:
                               "Please enter your phone number to create an account. "),
                           Container(
+                            height: 56,
                             margin: const EdgeInsets.symmetric(vertical: 23),
                             padding: const EdgeInsets.symmetric(
-                                vertical: 6, horizontal: 8),
+                                vertical: 0, horizontal: 14),
                             decoration: BoxDecoration(
                                 color: white,
                                 borderRadius: BorderRadius.circular(16),
@@ -53,59 +55,39 @@ class SignupView extends GetView<SignupController> {
                                       blurRadius: 1,
                                       spreadRadius: 1)
                                 ]),
-                            child: InternationalPhoneNumberInput(
-                              onInputChanged: (PhoneNumber number) {
-                                print(number.phoneNumber);
-                                controller.numberText.value = number.phoneNumber!;
-                              },
-                              onInputValidated: (bool value) {
-                                print(value);
-                              },
-                              selectorConfig: const SelectorConfig(
-                                selectorType: PhoneInputSelectorType
-                                    .BOTTOM_SHEET,
+                            child: Row(children: [
+                              SvgPicture.asset(MyAssets.jamcia),
+                              const SizedBox(width: 8,),
+                              const CustomText(text: "+1", fontSize: 17, fontWeight: FontWeight.w500,),
+
+                               Padding(
+                                padding: const EdgeInsets.only(left: 8),
+                                child: SizedBox(
+                                    height: 34,
+
+                                    child: VerticalDivider(color: Colors.black.withOpacity(0.23),),
+
+
+                                ),
                               ),
-                              ignoreBlank: false,
-                              cursorColor: primaryColor,
-                              spaceBetweenSelectorAndTextField: 0,
-                              inputDecoration: InputDecoration(
-                                  isCollapsed: true,
+                              Expanded(
+                                child: EditTextField(controller: controller
+                                    .textEditingController, isSecure: false,
+                                  showBorder: false,
+                                  textInputType: TextInputType.number,
 
-                                  suffixIconConstraints: const BoxConstraints(
-                                      minHeight: 20),
+                                  showLabel:false,
+                                  onChange: (value){
+                                    controller.numberText.value = value;
 
-                                  suffixIcon: SvgPicture.asset(
-                                    MyAssets.cancle, width: 22, height: 20,),
-                                  prefixIconConstraints: const BoxConstraints(
-                                      maxHeight: 24,
-                                      minHeight: 2,
-                                      minWidth: 22),
-                                  prefixIcon: const SizedBox(
-                                    child: VerticalDivider(
-                                      width: 1,
-                                      thickness: 1,
-                                    ),
-                                  ),
-                                  border: InputBorder.none,
-                                  hintText: ""),
-                              autoValidateMode: AutovalidateMode.disabled,
-                              selectorTextStyle: const TextStyle(
-                                  color: Colors.black),
-                              initialValue: controller.number.value,
-                              textFieldController: controller
-                                  .textEditingController,
-                              formatInput: true,
-                              keyboardType: const TextInputType
-                                  .numberWithOptions(
-                                  signed: true, decimal: true),
-                              inputBorder: InputBorder.none,
-                              onSaved: (PhoneNumber number) {
+                                  },
 
-                              },
-                            ),
+                                ),
+                              )
+
+                            ],),
                           ),
                           const Spacer(),
-
                           const CustomRichText(),
                           Padding(
                             padding: const EdgeInsets.all(22.0),
@@ -113,7 +95,6 @@ class SignupView extends GetView<SignupController> {
                               return PrimaryButton(
                                 title: 'Continue', onPress: () {
                                 Get.toNamed(Routes.VERIFICATION, arguments: 'signup');
-
                               },
                                 fontWeight: FontWeight.w600,
                                 color: controller.numberText.value.isEmpty ? buttonDisbaleColor : primaryColor,

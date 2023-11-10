@@ -28,7 +28,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
               const PrimaryText(
                   title: "Let’s get started!",
                   subTitle:
-                      "What is the purpose of the loan you are applying for? "),
+                      "What is the purpose of the loan you are applying for?"),
               const SizedBox(
                 height: 16,
               ),
@@ -41,22 +41,27 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                     },
                   )),
               const SizedBox(
-                height: 16,
+                height: 9,
               ),
               const CustomText(
+                textAlign: TextAlign.start,
                   text: "How long have you resided at your current address?",
                   fontSize: 14),
               const SizedBox(
-                height: 16,
+                height: 20,
               ),
               Row(
                 children: [
                   Expanded(
                     child: EditTextField(
                       lable: "Years",
+                      labelColor: Colors.black,
+                      labelFontWeight: FontWeight.w600,labelFontSize: 15,
+
                       suffixIcon: MyAssets.cancle,
-                      controller: controller.editingController,
+                      controller: controller.yearEditingController,
                       isSecure: false,
+                      textInputType: TextInputType.datetime,
                       showSuffixIcon: false,
                     ),
                   ),
@@ -66,8 +71,11 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                   Expanded(
                     child: EditTextField(
                       lable: "Months",
+                      labelColor: Colors.black,
+                      labelFontWeight: FontWeight.w600,labelFontSize: 15,
                       suffixIcon: MyAssets.cancle,
-                      controller: controller.editingController,
+                      controller: controller.monthEditingController,
+                      textInputType: TextInputType.datetime,
                       isSecure: false,
                       showSuffixIcon: false,
                     ),
@@ -95,6 +103,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
               ),
               EditTextField(
                 lable: "Years",
+                textInputType: TextInputType.number,
                 suffixIcon: MyAssets.cancle,
                 controller: controller.costEditController,
                 isSecure: false,
@@ -110,7 +119,7 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CustomText(text: "Status", fontSize: 14),
+                        const CustomText(text: "Martial Status", fontSize: 14),
                         const SizedBox(
                           height: 16,
                         ),
@@ -140,10 +149,12 @@ class LoanPurposeView extends GetView<ApplyLoanViewController> {
                         ),
                         EditTextField(
                           lable: "121",
+
                           suffixIcon: MyAssets.cancle,
                           controller: controller.noOfDependsEditController,
                           isSecure: false,
                           showSuffixIcon: false,
+                          textInputType: TextInputType.number,
                           showLabel: false,
                         ),
                       ],
@@ -221,7 +232,7 @@ class CustomDropDown extends StatelessWidget {
                 child: Text(
                   value,
                   style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 13,
                       overflow: TextOverflow.ellipsis,
                       fontWeight: FontWeight.w500,
                       color: Colors.black),

@@ -2,6 +2,7 @@ import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -18,7 +19,10 @@ class ApplyLoanViewView extends GetView<ApplyLoanViewController> {
       appBar: CustomAppBar(
           text: "",
           backPress: () {
-            Get.back();
+
+             Get.back();
+             statusBarDark();
+
           }),
       body: Padding(
         padding: const EdgeInsets.all(27.0),
@@ -129,6 +133,7 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    statusBarLight();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child: SizedBox(

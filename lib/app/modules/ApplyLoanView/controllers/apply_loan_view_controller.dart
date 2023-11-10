@@ -16,7 +16,13 @@ class ApplyLoanViewController extends GetxController {
     'Rent',
     'Own',
   ];
+  final List<String> loanTermsItems = [
+    '1 month',
+    '2 month',
+    '1 year',
+  ];
   final List<String> durationItems = [
+    '1+ Years',
     '5+ Years',
     '10+ Years',
   ];
@@ -25,26 +31,31 @@ class ApplyLoanViewController extends GetxController {
     'Married',
   ];
   final List<String> employeItems = [
-    'Employee full time',
-    'Employee part time',
+
+    'Employed Full Time',
+    'Employed Part Time',
   ];
 
   final List<String> salaryDeductionItems = [
-    'Withdraw payment from your paycheck',
-    'Withdraw payment from your bank',
+    'Salary Deduction'
+    'Automatic Payment From Bank',
+    'Manual Payments',
   ];
   RxBool isChecked = true.obs;
   RxString selectedOption = 'Consoldate credit cards or multiple loans'.obs;
   RxString selectedOption2 = 'Rent'.obs;
   RxString genderSelectedOption = 'Single'.obs;
-  RxString emplyeSelectedOption = 'Employee full time'.obs;
-  RxString durationSelectedOption = '5+ Years'.obs;
-  RxString dedcutionSelectedOption = 'Withdraw payment from your paycheck'.obs;
+  RxString loanTermSelectedOption = '1 month'.obs;
+  RxString emplyeSelectedOption = 'Employed Full Time'.obs;
+  RxString durationSelectedOption = '1+ Years'.obs;
+  RxString dedcutionSelectedOption = 'Salary Deduction'.obs;
   TextEditingController editingController = TextEditingController();
   TextEditingController costEditController = TextEditingController();
   TextEditingController noOfDependsEditController = TextEditingController();
 
   TextEditingController loanAmountEditingController = TextEditingController();
+  TextEditingController monthEditingController = TextEditingController();
+  TextEditingController yearEditingController = TextEditingController();
   TextEditingController paymentAmountEditingController =
       TextEditingController();
   TextEditingController amountEditingController = TextEditingController();

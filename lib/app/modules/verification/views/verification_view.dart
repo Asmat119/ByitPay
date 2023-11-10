@@ -2,6 +2,7 @@ import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dar
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
@@ -116,6 +117,7 @@ class VerificationView extends GetView<VerificationController> {
                                 onPress: () {
                                   controller.clearText.value = true;
                                   if (path == 'tab') {
+                                    statusBarDark();
                                     Get.toNamed(Routes.TAB_VIEW);
                                   }
                                   else {

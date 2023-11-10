@@ -60,7 +60,7 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.LOGIN;
-  static const INITIALPINCODE = Routes.PINCODE;
+  static const INITIALPINCODE = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -244,7 +244,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VERIFICATION,
-      page: () =>  VerificationView(),
+      page: () => VerificationView(),
       binding: VerificationBinding(),
     ),
     GetPage(
@@ -255,18 +255,15 @@ class AppPages {
     GetPage(
       name: _Paths.VERIFYEMAIL,
       page: () => const VerifyEmailView(),
-
     ),
     GetPage(
       name: _Paths.TAKESELFIE,
       page: () => const TakeSelfieView(),
-
     ),
     GetPage(
       name: _Paths.PERSONAL_VERIFICATION_IDENTITY,
       page: () => const PersonalVerifyIdentityView(),
       binding: SignupBinding(),
-
     ),
   ];
 }

@@ -1,5 +1,6 @@
 import 'package:byitpay/app/modules/ApplyLoanView/controllers/apply_loan_view_controller.dart';
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
+import 'package:byitpay/app/modules/ApplyLoanView/views/loan_purpose_view.dart';
 import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
@@ -22,7 +23,7 @@ class HowMuchView extends GetView<ApplyLoanViewController> {
         Get.back();
       }),
       body: Padding(
-        padding: const EdgeInsets.all(13.0),
+        padding: const EdgeInsets.all(27.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -31,62 +32,95 @@ class HowMuchView extends GetView<ApplyLoanViewController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.all(14.0),
-                      child: PrimaryText(
-                          title: "How much? 💰  ",
-                          subTitle:
-                              "Please enter your phone number to create an account. "),
-                    ),
+                    const PrimaryText(
+                        title: "How much? 💰  ",
+                        subTitle:
+                            "Please enter your phone number to create an account. "),
                     const SizedBox(
                       height: 16,
                     ),
-                    EditTextField(
-                      lable: "Years",
-                      suffixIcon: MyAssets.forward,
-                      controller: controller.loanAmountEditingController,
-                      isSecure: false,
-                      showSuffixIcon: true,
-                      showLabel: true,
-                      showBorder: false,
-                      showInputBorder: true,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const CustomText(
+                            text: "Loan Amount", fontSize: 14),
+                        const SizedBox(height: 5,),
+                        EditTextField(
+                          suffixIcon: MyAssets.cancle,
+                          maxLength: 12,
+                          controller: controller.noOfDependsEditController,
+                          isSecure: false,
+
+                          showSuffixIcon: false,
+                          textInputType: TextInputType.number,
+                          showLabel: false,
+                        ),
+                      ],
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 14.0),
-                      child: CustomText(
-                        text: "Enter an amount between \$5,000 and \$1000,000",
-                        fontSize: 13,
-                        color: grey,
-                      ),
+                    // EditTextField(
+                    //   lable: "Years",
+                    //   suffixIcon: MyAssets.forward,
+                    //   controller: controller.loanAmountEditingController,
+                    //   isSecure: false,
+                    //   showSuffixIcon: true,
+                    //   showLabel: true,
+                    //   showBorder: false,
+                    //   showInputBorder: true,
+                    // ),
+                    SizedBox(height: 4,),
+                    const CustomText(
+                      text: "Enter an amount between \$5,000 and \$1000,000",
+                      fontSize: 13,
+                      color: grey,
                     ),
                     const SizedBox(
-                      height: 8,
+                      height: 20,
                     ),
-                    EditTextField(
-                      lable: "Loan Term",
-                      suffixIcon: MyAssets.forward,
-                      controller: controller.amountEditingController,
-                      isSecure: false,
-                      showSuffixIcon: true,
-                      showLabel: true,
-                      showBorder: false,
-                      showInputBorder: true,
+                    // EditTextField(
+                    //   lable: "Loan Term",
+                    //   suffixIcon: MyAssets.forward,
+                    //   controller: controller.amountEditingController,
+                    //   isSecure: false,
+                    //   showSuffixIcon: true,
+                    //   showLabel: true,
+                    //   showBorder: false,
+                    //   showInputBorder: true,
+                    // ),
+
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const CustomText(text: "Loan Term", fontSize: 14),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Obx(() => CustomDropDown(
+                          title: "",
+                          label: false,
+                          item: controller.loanTermsItems,
+                          selectedOption:
+                          controller.loanTermSelectedOption.value,
+                          onchange: (String? value) {
+                            controller.loanTermSelectedOption.value = value!;
+                          },
+                        )),
+                      ],
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    EditTextField(
-                      lable: "Repayment Frequency",
-                      suffixIcon: MyAssets.forward,
-                      controller: controller.paymentAmountEditingController,
-                      isSecure: false,
-                      showSuffixIcon: true,
-                      showLabel: true,
-                      showBorder: false,
-                      showInputBorder: true,
-                    ),
+                    // const SizedBox(
+                    //   height: 8,
+                    // ),
+                    // EditTextField(
+                    //   lable: "Repayment Frequency",
+                    //   suffixIcon: MyAssets.forward,
+                    //   controller: controller.paymentAmountEditingController,
+                    //   isSecure: false,
+                    //   showSuffixIcon: true,
+                    //   showLabel: true,
+                    //   showBorder: false,
+                    //   showInputBorder: true,
+                    // ),
                     Container(
-                      margin: const EdgeInsets.all(14),
+                      margin: const EdgeInsets.symmetric(vertical: 14),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 12),
                       decoration: BoxDecoration(
@@ -113,7 +147,7 @@ class HowMuchView extends GetView<ApplyLoanViewController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CustomText(
-                                  text: "Loan Pyament",
+                                  text: "Payment Estimate",
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
                                   color: lightPurple,

@@ -4,6 +4,7 @@ import 'package:byitpay/app/modules/TabView/views/LoanTab/details_view.dart';
 import 'package:byitpay/app/modules/TabView/views/LoanTab/loan_view.dart';
 import 'package:byitpay/app/modules/TabView/views/LoanTab/paymnet_view.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:byitpay/model/laon_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ class LoanDetailsView extends GetView<TabViewController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: LoanPaymentCard(model: model),
+      appBar: LoanPaymentCard(model: model, onTab: (){Get.back();},),
       body: DefaultTabController(
         length: 2,
         child: Column(
@@ -73,13 +74,16 @@ class LoanPaymentCard extends StatelessWidget implements PreferredSizeWidget {
   const LoanPaymentCard({
     super.key,
     required this.model,
+    this.onTab
   });
   @override
   Size get preferredSize => const Size.fromHeight(260);
   final LoanModel model;
+  final VoidCallback? onTab;
 
   @override
   Widget build(BuildContext context) {
+    statusBarDark();
     return PreferredSize(
       preferredSize: preferredSize,
       child: Container(
@@ -101,8 +105,8 @@ class LoanPaymentCard extends StatelessWidget implements PreferredSizeWidget {
               elevation: 0,
               backgroundColor: primaryColor,
               leading: IconButton(
-                onPressed: () {
-                  Get.back();
+                onPressed: onTab ?? (){
+
                 },
                 icon: const Icon(Icons.arrow_back_ios),
               ),

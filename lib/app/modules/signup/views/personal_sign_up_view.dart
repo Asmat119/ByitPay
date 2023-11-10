@@ -117,6 +117,12 @@ class StepOneWidget extends StatelessWidget {
               return EditTextField(
                 controller: controller.fNEditingController.value,
                 isSecure: false,
+                showSuffixIcon:     controller.fNameText.value.isNotEmpty ? true : false,
+                onSuffixClick: (){
+                  controller.fNEditingController.value.text = "";
+                  controller.fNameText.value = "";
+                },
+                suffixIcon: MyAssets.cancle,
                 onChange: (value) {
                   controller.fNameText.value = value;
                 },
@@ -131,6 +137,13 @@ class StepOneWidget extends StatelessWidget {
             Obx(() {
               return EditTextField(
                 controller: controller.lNEditingController.value,
+
+                showSuffixIcon:     controller.lNameText.value.isNotEmpty ? true : false,
+                onSuffixClick: (){
+                  controller.lNEditingController.value.text = "";
+                  controller.lNameText.value = "";
+                },
+                suffixIcon: MyAssets.cancle,
                 isSecure: false,
                 onChange: (value) {
                   controller.lNameText.value = value;
@@ -146,18 +159,24 @@ class StepOneWidget extends StatelessWidget {
               return EditTextField(
                 controller: controller.dOBEditingController.value,
                 isSecure: false,
+                showSuffixIcon:     controller.dobText.value.isNotEmpty ? true : false,
+                onSuffixClick: (){
+                  controller.dOBEditingController.value.text = "";
+                  controller.dobText.value = "";
+                },
+                suffixIcon: MyAssets.cancle,
                 onChange: (value) {
                   controller.dobText.value = value;
                 },
                 showLabel: true,
                 lable: "Date of birth ( MM / DD / YYYY)",
-                textInputType: TextInputType.number,
+                textInputType: TextInputType.datetime,
               );
             }),
             const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
-              child: const CustomRichText(),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              child: CustomRichText(),
             ),
 
             Padding(
@@ -169,13 +188,13 @@ class StepOneWidget extends StatelessWidget {
                     title: "Continue",
                     onPress: () {
                       controller.incrementStep();
-                      controller.lNEditingController.value.text = "";
-                      controller.fNEditingController.value.text = "";
-                      controller.dOBEditingController.value.text = "";
-
-                      controller.lNameText.value = "";
-                      controller.fNameText.value = "";
-                      controller.dobText.value = "";
+                      // controller.lNEditingController.value.text = "";
+                      // controller.fNEditingController.value.text = "";
+                      // controller.dOBEditingController.value.text = "";
+                      //
+                      // controller.lNameText.value = "";
+                      // controller.fNameText.value = "";
+                      // controller.dobText.value = "";
                     },
                     fontWeight: FontWeight.w600,
                     color: controller.stepOneValid()
@@ -302,13 +321,13 @@ class StepTwoWidget extends StatelessWidget {
                     title: "Continue",
                     onPress: () {
                       controller.incrementStep();
-                      controller.streetEditingController.value.text = "";
-                      controller.aptEditingController.value.text = "";
-                      controller.cityEditingController.value.text = "";
-
-                      controller.streetText.value = "";
-                      controller.aptText.value = "";
-                      controller.cityText.value = "";
+                      // controller.streetEditingController.value.text = "";
+                      // controller.aptEditingController.value.text = "";
+                      // controller.cityEditingController.value.text = "";
+                      //
+                      // controller.streetText.value = "";
+                      // controller.aptText.value = "";
+                      // controller.cityText.value = "";
                     },
                     fontWeight: FontWeight.w600,
                     color: controller.stepTwoValid()
@@ -334,11 +353,8 @@ class StepThreeWidget extends StatelessWidget {
     required this.controller,
     required this.constraint
   });
-
   final SignupController controller;
   final BoxConstraints constraint;
-
-
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -347,7 +363,6 @@ class StepThreeWidget extends StatelessWidget {
       child: IntrinsicHeight(
         child: Column(
           children: [
-
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: List.generate(
@@ -358,8 +373,18 @@ class StepThreeWidget extends StatelessWidget {
                     ListTileWithEditButton(
                       title: controller.confirmLoanList[index].title,
                       subTitle: controller.confirmLoanList[index].subTitle,
-                      onTab: (){},
+                      onTab: (){
+                        if(index==0  || index == 1){
 
+                          controller.stepsCount.value--;
+                          controller.stepsCount.value--;
+
+
+                        }
+                        if(index==2){
+                          controller.stepsCount.value--;
+                        }
+                      },
                     ),
                     index <= 1 ? const Divider() : const Text(""),
                   ],
@@ -376,10 +401,8 @@ class StepThreeWidget extends StatelessWidget {
                   title: "Continue",
                   onPress: () {
                     controller.incrementStep();
-                    controller.taxEditingController.value.text = "";
-                    controller.taxText.value = "";
-
-
+                    // controller.taxEditingController.value.text = "";
+                    // controller.taxText.value = "";
                   },
                   fontWeight: FontWeight.w600,
                    color: primaryColor
@@ -441,8 +464,8 @@ class StepFourWidget extends StatelessWidget {
                       title: "Continue",
                       onPress: () {
                         controller.incrementStep();
-                        controller.taxEditingController.value.text = "";
-                        controller.taxText.value = "";
+                        // controller.taxEditingController.value.text = "";
+                        // controller.taxText.value = "";
 
                       },
                       fontWeight: FontWeight.w600,
@@ -469,11 +492,8 @@ class StepFiveWidget extends StatelessWidget {
     required this.controller,
     required this.constraint
   });
-
   final SignupController controller;
   final BoxConstraints constraint;
-
-
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -500,11 +520,14 @@ class StepFiveWidget extends StatelessWidget {
             Obx(() {
               return EditTextField(
                 controller: controller.passwordEditingController.value,
-                isSecure: true,
+                isSecure: controller.isSecure.value,
                 showSuffixIcon: true,
                 suffixIcon: MyAssets.lock,
                 textInputType: TextInputType.text,
-
+                isShowHideIcon: true,
+                onHideIconClick: (){
+                  controller.isSecure.value = !controller.isSecure.value;
+                },
                 onChange: (value) {
                   controller.passText.value = value;
                 },
@@ -526,10 +549,10 @@ class StepFiveWidget extends StatelessWidget {
                     onPress: () {
 
 
-                      controller.emailEditingController.value.text = "";
-                      controller.passwordEditingController.value.text = "";
-                      controller.passText.value = "";
-                      controller.emailText.value = "";
+                      // controller.emailEditingController.value.text = "";
+                      // controller.passwordEditingController.value.text = "";
+                      // controller.passText.value = "";
+                      // controller.emailText.value = "";
                       Get.toNamed(Routes.VERIFYEMAIL);
 
                     },

@@ -3,6 +3,7 @@ import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:byitpay/model/account_info_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,6 +34,7 @@ class AccountInfoView extends GetView<AccountInfoController> {
                       children: [
                         IconButton(
                             onPressed: () {
+                              statusBarDark();
                               Get.back();
                             },
                             icon: const Icon(

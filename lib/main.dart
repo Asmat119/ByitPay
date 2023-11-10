@@ -9,21 +9,25 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 late List<CameraDescription> cameras;
 Future<void> main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
 
-  cameras = await availableCameras();
+
+  // cameras = await availableCameras();
   runApp(
     ScreenUtilInit(
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          statusBar();
+          statusBarDark();
           return GetMaterialApp(
             title: "Application",
             debugShowCheckedModeBanner: false,
             initialRoute: AppPages.INITIALPINCODE,
             defaultTransition: Transition.rightToLeft,
+
+
             // theme: ThemeData.dark().copyWith(
             //   appBarTheme: AppBarTheme(
             //     centerTitle: false,
@@ -53,16 +57,18 @@ Future<void> main() async {
   );
 }
 
-void statusBar({Color color = primaryColor}) {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarIconBrightness: Brightness.light,
-    statusBarColor: color, // status bar color
-  ));
+void statusBarLight({Color color = primaryColor}) {
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+          statusBarColor: white,
+          statusBarIconBrightness: Brightness.dark
+      ));
 }
 
-void statusBar2() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarIconBrightness: Brightness.dark,
-    statusBarColor: white, // status bar color
-  ));
+void statusBarDark({Color color = primaryColor}) {
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+          statusBarColor: primaryColor,
+          statusBarIconBrightness: Brightness.light
+      ));
 }

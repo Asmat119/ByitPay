@@ -8,6 +8,7 @@ class GeneralSettingController extends GetxController {
 
 
   RxBool onOff = true.obs;
+  RxBool onOffFingerPrint = true.obs;
   Rx<TextEditingController> searchEditingController =
       TextEditingController().obs;
   RxString searchText = "".obs;
@@ -46,6 +47,7 @@ class GeneralSettingController extends GetxController {
         ishowDivider: false),
   ];
   void switchOnOff() => onOff.value = !onOff.value;
+  void switchOnOffFinger() => onOffFingerPrint.value = !onOffFingerPrint.value;
   void notificationSwitchOnOff() =>
       notificationOnOff.value = !notificationOnOff.value;
 }

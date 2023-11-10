@@ -74,7 +74,7 @@ class PersonalInfoView extends GetView<AccountInfoController> {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 12),
               child: CustomText(
-                text: "Employee",
+                text: "Gender",
                 fontSize: 16,
                 textAlign: TextAlign.left,
                 color: lightGrey,

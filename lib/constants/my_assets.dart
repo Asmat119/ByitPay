@@ -3,6 +3,7 @@ class MyAssets {
   static String slider1 = 'assets/images/slider1.png';
   static String fingerprint = 'assets/icons/ic_fingerprint.svg';
   static String cancle = 'assets/icons/cancle.svg';
+  static String eye = 'assets/icons/Eye.svg';
   static String lock = 'assets/icons/lock.svg';
   static String pay = 'assets/icons/pay.svg';
   static String apply = 'assets/icons/apply.svg';
@@ -17,7 +18,9 @@ class MyAssets {
   static String profilebottom = 'assets/icons/profile.svg';
   static String forward = 'assets/icons/forward.svg';
   static String money = 'assets/icons/Money.svg';
-  static String done = 'assets/icons/Done circles.svg';
+  static String searchLong = 'assets/images/Search Icon.png';
+
+  static String done = 'assets/images/Search Icon.svg';
   static String vector = 'assets/icons/vector.svg';
   static String radioCheck = 'assets/icons/Radio.svg';
   static String radioUncheck = 'assets/icons/radio_uncheck.svg';
@@ -59,6 +62,7 @@ class MyAssets {
   static String chatting = 'assets/icons/chatting.svg';
   static String helpcneter = 'assets/icons/helpcenter.svg';
   static String flash = 'assets/icons/flash.svg';
+  static String jamcia = 'assets/icons/jamciaf.svg';
   static String flip = 'assets/icons/flip.svg';
   static String capture = 'assets/icons/Capture.svg';
   static String mastercard2 = 'assets/icons/mastercard.svg';
@@ -68,4 +72,8 @@ class MyAssets {
   static String receiptSvg = 'assets/icons/Receipt.svg';
   static String linearBackground = 'assets/images/Background.png';
   static String paymentcards = 'assets/images/paymentcards.png';
+  static String homep = 'assets/images/homep.png';
+  static String unlock = 'assets/icons/unlock.svg';
+  static String faceid = 'assets/icons/face_id.svg';
+  static String changePasswrod = 'assets/icons/changePass.svg';
 }

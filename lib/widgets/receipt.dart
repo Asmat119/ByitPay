@@ -3,9 +3,11 @@ import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/login/views/login_view.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:byitpay/model/receipt_model.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -26,39 +28,46 @@ class Receipt extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    statusBarLight();
     return Scaffold(
-      backgroundColor: tabBacjground,
+      backgroundColor: Colors.white,
       appBar: CustomAppBar(
         backPress: () {
           Get.back();
         },
         text: "Payment Details",
       ),
-      body: SingleChildScrollView(
-          child: Column(
-        children: [
-          ReceiptCard(
-            loanID: loanID,
-            totalAmount: totolaAmount,
-            list: modelList,
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 52.0),
-            child: PrimaryButton(title: "Email Receipt", onPress: () {}),
-          ),
-          TextButton(
-              onPressed: () {},
-              child: const CustomText(
-                text: "Close",
-                fontSize: 15,
-                color: activePin,
-                fontWeight: FontWeight.w600,
-              ))
-        ],
-      )),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarBrightness: Brightness.dark
+        ),
+        child: SingleChildScrollView(
+            child: Column(
+          children: [
+            ReceiptCard(
+              loanID: loanID,
+              totalAmount: totolaAmount,
+              list: modelList,
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 52.0),
+              child: PrimaryButton(title: "Email Receipt", onPress: () {}),
+            ),
+            TextButton(
+                onPressed: () {},
+                child: const CustomText(
+                  text: "Close",
+                  fontSize: 15,
+                  color: activePin,
+                  fontWeight: FontWeight.w600,
+                ))
+          ],
+        )),
+      ),
     );
   }
 }

@@ -1,14 +1,20 @@
+import 'package:byitpay/app/modules/home/model/HomeCardModel.dart';
 import 'package:byitpay/constants/constants_keys.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:byitpay/model/details_model.dart';
 import 'package:byitpay/model/help_model.dart';
 import 'package:byitpay/model/laon_model.dart';
 import 'package:byitpay/model/profile_model.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class TabViewController extends GetxController {
+  Rx<PersistentTabController> persistentTabController =
+      PersistentTabController(initialIndex: 0).obs;
   List<String> statementList = [
     "January 2022",
     "February 2022",
@@ -148,12 +154,73 @@ class TabViewController extends GetxController {
         isPaid: true),
   ];
 
+  List<HomeCardModel> homeModel = [
+    HomeCardModel(
+        date: "Aug 10, 2023",
+        loanTitle: "Money Transfer",
+        loanSubTitle: "Disbursement",
+        amount: "\$30,000",
+        loanID: "Loan ID: BYLP258",
+        iconPath: MyAssets.money
+    ),
+    HomeCardModel(
+        date: "Aug 10, 2023",
+        loanTitle: "Loan Payment",
+        loanSubTitle: "Bank transfer",
+        amount: "-\$2,500",
+        loanID: "Loan ID: BYLP258",
+        iconPath: MyAssets.loan
+    ),
+    HomeCardModel(
+        date: "Jul 1, 2023",
+        loanTitle: "Loan Payment",
+        loanSubTitle: "Debit or Credit Card",
+        amount: "\$30,000",
+        loanID: "Loan ID: BYLP258",
+        iconPath: MyAssets.loan
+    ),
+    HomeCardModel(
+        date: "Jul 1, 2023",
+        loanTitle: "Loan Payment",
+        loanSubTitle: "Debit or Credit Card",
+        amount: "\$30,000",
+        loanID: "Loan ID: BYLP258",
+        iconPath: MyAssets.loan
+    ),
+
+    HomeCardModel(
+        date: "Jul 1, 2023",
+        loanTitle: "Loan Payment",
+        loanSubTitle: "Debit or Credit Card",
+        amount: "\$30,000",
+        loanID: "Loan ID: BYLP258",
+        iconPath: MyAssets.loan
+    ),
+  ];
+
   RxInt currentIndex = 0.obs;
 
   final count = 0.obs;
 
   void onTabTapped(int index) {
     currentIndex.value = index;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: index == 2 ? white : primaryColor,
+        statusBarIconBrightness:
+            index == 2 ? Brightness.dark : Brightness.light));
+  }
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    statusBarDark();
   }
 
   void increment() => count.value++;

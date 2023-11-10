@@ -1,5 +1,4 @@
 import 'package:byitpay/app/modules/ApplyLoanView/views/apply_loan_view_view.dart';
-import 'package:byitpay/app/modules/GeneralSetting/controllers/general_setting_controller.dart';
 import 'package:byitpay/app/modules/TabView/controllers/tab_view_controller.dart';
 import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/modules/TabView/views/LoanTab/loan_document_view.dart';

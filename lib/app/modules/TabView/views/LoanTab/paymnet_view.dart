@@ -18,27 +18,27 @@ class PaymnetView extends GetView<TabViewController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  const CustomText(
-                    text: "Auto -Pay",
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: linearRed,
-                  ),
-                  const Spacer(),
-                  HighLightButton(
-                    backgroundColor: activePin,
-                    text: "Disabled",
-                    onTab: () {},
-                    textColor: activePin,
-                  ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: Divider(),
-              ),
+              // Row(
+              //   children: [
+              //     const CustomText(
+              //       text: "Auto -Pay",
+              //       fontSize: 16,
+              //       fontWeight: FontWeight.bold,
+              //       color: linearRed,
+              //     ),
+              //     const Spacer(),
+              //     HighLightButton(
+              //       backgroundColor: activePin,
+              //       text: "Disabled",
+              //       onTab: () {},
+              //       textColor: activePin,
+              //     ),
+              //   ],
+              // ),
+              // const Padding(
+              //   padding: EdgeInsets.symmetric(vertical: 16.0),
+              //   child: Divider(),
+              // ),
               Row(
                 children: [
                   const CustomText(
@@ -52,7 +52,8 @@ class PaymnetView extends GetView<TabViewController> {
                     backgroundColor: green,
                     text: "Pay now",
                     onTab: () {
-                      Get.toNamed(Routes.MAKEPAYMENT, arguments: model);
+                      // Get.toNamed(Routes.MAKEPAYMENT, arguments: model);
+                      Get.toNamed(Routes.MAKEPAYMENT);
                     },
                     textColor: green,
                   ),

@@ -43,7 +43,16 @@ class VerifyEmailView extends GetView<SignupController> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: PrimaryButton(title: "Verify email address",onPress: (){
-                            
+
+                            controller.textEditingController.text = "";
+                            controller.passwordEditingController.value.text = "";
+                            controller.emailEditingController.value.text = "";
+                            controller.aptEditingController.value.text = "";
+                            controller.streetEditingController.value.text = "";
+                            controller.taxEditingController.value.text = "";
+                            controller.dOBEditingController.value.text = "";
+                            controller.lNEditingController.value.text = "";
+
                             Get.toNamed(Routes.PERSONAL_VERIFICATION_IDENTITY);
                           },
                           fontWeight: FontWeight.w600,
@@ -51,7 +60,9 @@ class VerifyEmailView extends GetView<SignupController> {
                           ),
                         ),
 
-                        TextButton(onPressed: (){}, child: const CustomText(text: "edit email", color:  activePin, fontSize: 18,
+                        TextButton(onPressed: (){
+                          Get.back();
+                        }, child: const CustomText(text: "edit email", color:  activePin, fontSize: 18,
                           fontWeight: FontWeight.w600,
                          letterSpacing: -0.2,
                         )),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color(0xFF000032);
 const activePin = Color(0xFFFB6039);
+const redIconColor = Color(0xffFB6039);
 const lightText = Color(0xFF6B7280);
 const disbaleTextColor = Color(0xFF040C22);
 
@@ -28,9 +29,9 @@ const linearGradientProgressBar = LinearGradient(
     colors: [linearRed, linearBlue],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight);
-const Gradient gradient = LinearGradient(colors: [
-  Color.fromARGB(0, 41, 105, 255),
-  Color(0XFFF91E5A),
+ Gradient gradient = LinearGradient(colors: [
+   const Color(0XFF2969FF).withOpacity(0),
+  const Color(0XFFF91E5A).withOpacity(0.56),
 ], begin: Alignment.topCenter, end: Alignment.bottomCenter);
 // const secondaryColor = Color(0xFF2AD1AE);
 // const bottomNavSelected = Color(0xFFB0606D);

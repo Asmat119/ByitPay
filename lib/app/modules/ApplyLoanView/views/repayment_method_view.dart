@@ -27,7 +27,8 @@ class RepaymentMethodView extends GetView<ApplyLoanViewController> {
               height: 16,
             ),
             Obx(() => CustomDropDown(
-                  title: "Salary Deduction",
+                  title: "",
+                  label: false,
                   item: controller.salaryDeductionItems,
                   selectedOption: controller.dedcutionSelectedOption.value,
                   onchange: (String? value) {

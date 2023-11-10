@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    statusBar2();
+    statusBarDark();
     var pageIndex = 0.obs;
     final List<Widget> demo = [
       Column(

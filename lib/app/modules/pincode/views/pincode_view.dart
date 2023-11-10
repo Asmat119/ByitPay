@@ -23,165 +23,186 @@ class PincodeView extends GetView<PincodeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff000032),
-      body: Obx(
-        () => Column(
-          children: [
-            Text(currentIndex.value.toString()),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image(
-                    image: const AssetImage('assets/images/logo.png'),
-                    width: .3.sw,
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  const Text(
-                    'Enter your code',
-                    style: TextStyle(
-                        color: white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 100,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (var i = 0; i < actives.length; i++)
-                          AnimatedBox(
-                            clear: clears[i],
-                            actives: actives[i],
-                            value: value[i],
-                          ),
-                      ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color(0xff000032),
+        body:
+        Obx(() {
+          return Container(
+            height: MediaQuery
+                .of(context)
+                .size
+                .height,
+            alignment: Alignment.center,
+            child: ListView(
+
+              // crossAxisAlignment: CrossAxisAlignment.center,
+
+              children: [
+
+                Column(
+                  children: [
+                    const SizedBox(height: 81,),
+                    Image(
+                      image: const AssetImage('assets/images/logo.png'),
+                      width: .3.sw,
                     ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    childAspectRatio: 0.7 / 0.5,
-                  ),
-                  itemBuilder: (context, index) => Container(
-                    margin: const EdgeInsets.all(4.0),
-                    // color: white,
-                    child: index == 9
-                        ? IconButton(
-                            onPressed: () async {
-                              bool isAuthenticated =
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    const Text(
+                      'Enter your code',
+                      style: TextStyle(
+                          color: white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (var i = 0; i < actives.length; i++)
+                            AnimatedBox(
+                              clear: clears[i],
+                              actives: actives[i],
+                              value: value[i],
+                            ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+
+                          crossAxisCount: 3,
+                          childAspectRatio: 0.7 / 0.5,
+                        ),
+                        itemBuilder: (context, index) =>
+                            Container(
+                              margin: const EdgeInsets.all(4.0),
+                              // color: white,
+                              child: index == 9
+                                  ? IconButton(
+                                onPressed: () async {
+                                  bool isAuthenticated =
                                   await AuthService.authenticateUser();
-                              if (isAuthenticated) {
-                                // ScaffoldMessenger.of(context).showSnackBar(
-                                //   const SnackBar(
-                                //     content: Text('Authentication Success.'),
-                                //   ),
-                                // );
-                                statusBar2();
-                                Get.offAllNamed(Routes.HOME);
-                              } else {
-                                // ignore: use_build_context_synchronously
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Authentication failed.'),
-                                  ),
-                                );
-                              }
-                            },
-                            icon: SvgPicture.asset(
-                              MyAssets.fingerprint,
-
-                              // Icons.fingerprint,
-                              // color: activePin,
-                              // size: 44,
-                            ),
-                          )
-                        : Center(
-                            child: MaterialButton(
-                              onPressed: () {
-                                if (index == 11) {
-                                  inputText = inputText.substring(
-                                      0, inputText.length - 1);
-                                  clears.value =
-                                      clears.map((e) => false).toList();
-
-                                  if (currentIndex.value >= 0) {
-                                    clears[currentIndex.value - 1] = true;
-                                    actives[currentIndex.value - 1] = false;
-                                  } else {
-                                    currentIndex.value = 0;
-                                  }
-                                  currentIndex.value--;
-
-                                  return;
-                                } else {
-                                  inputText +=
-                                      numbers[index == 10 ? index - 1 : index]
-                                          .toString();
-                                }
-                                if (inputText.length == 4) {
-                                  if (inputText == "1234") {
-                                    statusBar2();
+                                  if (isAuthenticated) {
+                                    // ScaffoldMessenger.of(context).showSnackBar(
+                                    //   const SnackBar(
+                                    //     content: Text('Authentication Success.'),
+                                    //   ),
+                                    // );
+                                    statusBarDark();
                                     Get.offAllNamed(Routes.HOME);
-                                    debugPrint('Success');
-                                    // return;
+                                  } else {
+                                    // ignore: use_build_context_synchronously
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(
+                                      const SnackBar(
+                                        content: Text(
+                                            'Authentication failed.'),
+                                      ),
+                                    );
                                   }
-                                  clears.value =
-                                      clears.map((e) => true).toList();
-                                  actives.value =
-                                      actives.map((e) => false).toList();
-                                  currentIndex.value = 0;
-                                  inputText = "";
-                                  return;
-                                }
-                                clears.value =
-                                    clears.map((e) => false).toList();
-                                actives[currentIndex.value] = true;
-                                currentIndex.value++;
-                              },
-                              minWidth: 65,
-                              height: 70,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
+                                },
+                                icon: SvgPicture.asset(
+                                  MyAssets.fingerprint,
+
+                                  // Icons.fingerprint,
+                                  // color: activePin,
+                                  // size: 44,
+                                ),
+                              )
+                                  : Center(
+                                child: MaterialButton(
+                                  onPressed: () {
+                                    if (index == 11) {
+                                      inputText = inputText.substring(
+                                          0, inputText.length - 1);
+                                      clears.value =
+                                          clears.map((e) => false).toList();
+
+                                      if (currentIndex.value >= 0) {
+                                        clears[currentIndex.value - 1] =
+                                        true;
+                                        actives[currentIndex.value - 1] =
+                                        false;
+                                      } else {
+                                        currentIndex.value = 0;
+                                      }
+                                      currentIndex.value--;
+
+                                      return;
+                                    } else {
+                                      inputText +=
+                                          numbers[index == 10
+                                              ? index - 1
+                                              : index]
+                                              .toString();
+                                    }
+                                    if (inputText.length == 4) {
+                                      if (inputText == "1234") {
+                                        statusBarDark();
+                                        Get.offAllNamed(Routes.HOME);
+                                        debugPrint('Success');
+                                        // return;
+                                      }
+                                      clears.value =
+                                          clears.map((e) => true).toList();
+                                      actives.value =
+                                          actives.map((e) => false)
+                                              .toList();
+                                      currentIndex.value = 0;
+                                      inputText = "";
+                                      return;
+                                    }
+                                    clears.value =
+                                        clears.map((e) => false).toList();
+                                    actives[currentIndex.value] = true;
+                                    currentIndex.value++;
+                                  },
+                                  minWidth: 65,
+                                  height: 70,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        100),
+                                  ),
+                                  color: index == 11 ? null : Colors
+                                      .white12,
+                                  child: index == 11
+                                      ? const Icon(
+                                    Icons.backspace,
+                                    color: Colors.white,
+                                    size: 32,
+                                  )
+                                      : Text(
+                                    '${numbers[index == 10
+                                        ? index - 1
+                                        : index]}',
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 25),
+                                  ),
+                                ),
                               ),
-                              color: index == 11 ? null : Colors.white12,
-                              child: index == 11
-                                  ? const Icon(
-                                      Icons.backspace,
-                                      color: Colors.white,
-                                      size: 32,
-                                    )
-                                  : Text(
-                                      '${numbers[index == 10 ? index - 1 : index]}',
-                                      style: const TextStyle(
-                                          color: Colors.white, fontSize: 25),
-                                    ),
                             ),
-                          ),
-                  ),
-                  itemCount: 12,
+                        itemCount: 12,
+                      ),
+                    ),
+                    const SizedBox(height: 81,),
+                  ],
                 ),
-              ),
+              ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-          ],
-        ),
+          );
+        }),
+
       ),
     );
   }
@@ -190,6 +211,7 @@ class PincodeView extends GetView<PincodeController> {
 class AnimatedBox extends StatefulWidget {
   const AnimatedBox(
       {super.key, this.clear = false, this.actives = false, this.value});
+
   final clear;
   final actives;
   final value;
@@ -218,26 +240,14 @@ class _AnimatedBoxState extends State<AnimatedBox>
     }
     return AnimatedBuilder(
       animation: animationController,
-      builder: (context, child) => Container(
-        margin: const EdgeInsets.all(8.0),
-        child: Stack(
-          children: [
-            Container(),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              height: 15,
-              width: 15,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: widget.actives ? activePin : white,
-              ),
-            ),
-            Align(
-              alignment:
-                  Alignment(0, animationController.value / widget.value - 1),
-              child: Opacity(
-                opacity: 1 - animationController.value,
-                child: Container(
+      builder: (context, child) =>
+          Container(
+            margin: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: [
+                Container(),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 300),
                   height: 15,
                   width: 15,
                   decoration: BoxDecoration(
@@ -245,11 +255,24 @@ class _AnimatedBoxState extends State<AnimatedBox>
                     color: widget.actives ? activePin : white,
                   ),
                 ),
-              ),
+                Align(
+                  alignment:
+                  Alignment(0, animationController.value / widget.value - 1),
+                  child: Opacity(
+                    opacity: 1 - animationController.value,
+                    child: Container(
+                      height: 15,
+                      width: 15,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.actives ? activePin : white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
     );
   }
 }

@@ -28,7 +28,7 @@ class AccountInfoController extends GetxController {
   RxBool isSubmit = false.obs;
   RxBool isClose = false.obs;
 
-  List<String> dropdowList = ["Female", "Male", "Others"];
+  List<String> dropdowList = ["Female", "Male"];
   List<String> closeAccountDropList = ["Early Repayment", "Late Repayment"];
 
   List<AccountInfoModel> list = [

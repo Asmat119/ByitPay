@@ -122,7 +122,7 @@ class ListTileWithEditButton extends StatelessWidget {
         text:
             subTitle,
         fontSize: 16,
-        color: Colors.black,
+        color: disbaleTextColor,
         textAlign: TextAlign.left,
         letterSpacing: -0.4,
         fontWeight: FontWeight.w600,

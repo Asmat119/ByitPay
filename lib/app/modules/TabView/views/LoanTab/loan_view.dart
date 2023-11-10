@@ -3,6 +3,7 @@ import 'package:byitpay/app/modules/TabView/views/HomeTab/home_tab_view.dart';
 import 'package:byitpay/app/routes/app_pages.dart';
 import 'package:byitpay/constants/my_assets.dart';
 import 'package:byitpay/constants/my_colors.dart';
+import 'package:byitpay/main.dart';
 import 'package:byitpay/model/laon_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,7 +15,10 @@ class LoanView extends GetView<TabViewController> {
 
   @override
   Widget build(BuildContext context) {
+    statusBarDark();
+
     return Scaffold(
+
         backgroundColor: primaryColor,
         appBar: AppBar(
           centerTitle: true,
@@ -66,6 +70,7 @@ class LoanView extends GetView<TabViewController> {
                             onTap: () {
                               Get.toNamed(Routes.LOANDETAILS,
                                   arguments: controller.modelList[index]);
+
                             },
                             child: LoanCard(
                               model: controller.modelList[index],
@@ -84,6 +89,8 @@ class LoanView extends GetView<TabViewController> {
                             borderRadius: BorderRadius.circular(8),
                             onTap: () {
                               // Get.toNamed(Routes.LOANDETAILS);
+                              Get.toNamed(Routes.LOANDETAILS,
+                                  arguments: controller.modelList[0]);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(2.0),
